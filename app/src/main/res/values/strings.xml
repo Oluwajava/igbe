@@ -1,3 +1,17 @@
 <resources>
     <string name="app_name">Snews</string>
+
+    <string name="next">NEXT</string>
+    <string name="skip">SKIP</string>
+    <string name="start">GOT IT</string>
+
+    <string name="slide_1_title">Comprehensive</string>
+    <string name="slide_1_desc">We collect the best pieces from around the web and combine them into a story.</string>
+
+    <string name="slide_2_title">Twice a day</string>
+    <string name="slide_2_desc">Top stories delivered to you twice a daily at times you choose</string>
+
+    <string name="slide_3_title">Definitive</string>
+    <string name="slide_3_desc">We surface the most important need-to-know news</string>
+
 </resources>
