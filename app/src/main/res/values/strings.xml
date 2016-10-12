@@ -14,4 +14,35 @@
     <string name="slide_3_title">Definitive</string>
     <string name="slide_3_desc">We surface the most important need-to-know news</string>
 
+    <string-array name="news_source">
+        <item>Adventure</item>
+        <item>Atlantic</item>
+        <item>Bloomberg</item>
+        <item>CNN</item>
+        <item>Entertainment</item>
+        <item>ESPN</item>
+        <item>Food</item>
+        <item>Hiking</item>
+        <item>News</item>
+        <item>Photo</item>
+        <item>Quartz</item>
+        <item>Top</item>
+    </string-array>
+    <integer-array name="source_icon">
+        <item>@drawable/icon_adventure</item>
+        <item>@drawable/icon_adventure</item>
+        <item>@drawable/icon_atlantic</item>
+        <item>@drawable/icon_bloomberg</item>
+        <item>@drawable/icon_cnn</item>
+        <item>@drawable/icon_entertainment</item>
+        <item>@drawable/icon_espn</item>
+        <item>@drawable/icon_food</item>
+        <item>@drawable/icon_hiking</item>
+        <item>@drawable/icon_news</item>
+        <item>@drawable/icon_photo</item>
+        <item>@drawable/icon_quartz</item>
+        <item>@drawable/icon_top</item>
+    </integer-array>
+
+
 </resources>
