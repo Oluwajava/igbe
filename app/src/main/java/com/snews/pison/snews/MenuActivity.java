@@ -1,11 +1,8 @@
 package com.snews.pison.snews;
 
-import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
+import android.app.Activity;
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
-import android.view.View;
 import android.widget.Button;
 
 import com.snews.pison.snews.utils.Connect;
@@ -15,8 +12,11 @@ import com.snews.pison.snews.utils.NewsContent;
 
 import java.util.ArrayList;
 
+/**
+ * Created by Olusegun Olaosebikan on 10/12/2016.
+ */
 
-public class Selection extends AppCompatActivity {
+public class MenuActivity extends Activity {
 
     RecyclerView recyclerView;
     RecyclerView.Adapter adapter;
@@ -29,25 +29,12 @@ public class Selection extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.selection_activity);
+        setContentView(R.layout.menu_activity);
 
-        pref = new PrefManager(this);
-        //populating data from NewsContent
         name = NewsContent.getName();
         image_id = NewsContent.getImageId();
 
-        initializeCard();
-
-        btnContinue.setOnClickListener(new View.OnClickListener() {
-               @Override
-               public void onClick(View v) {
-                   pref.setSelectionMade(false);
-                   pref.setFavourites(NewsContent.getFavouritesSources());
-                   Log.d("Test", "Pref: "+pref.isSelectionMade());
-                   startActivity(new Intent(Selection.this, MenuActivity.class));
-               }
-           }
-        );
+//        initializeCard();
     }
 
     public void initializeCard() {
@@ -62,7 +49,7 @@ public class Selection extends AppCompatActivity {
         }
 
         recyclerView = (RecyclerView)findViewById(R.id.recycler_view);
-        recyclerView.setLayoutManager(new GridAutofitLayoutManager(this, 280));
+        recyclerView.setLayoutManager(new GridAutofitLayoutManager(this, 150));
         recyclerView.setHasFixedSize(true);
         adapter = new ConnectAdapter(list, this);
         recyclerView.setAdapter(adapter);

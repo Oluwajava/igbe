@@ -1,4 +1,4 @@
-package com.snews.pison.snews;
+package com.snews.pison.snews.utils;
 
 /**
  * Created by Olusegun Olaosebikan on 2/18/2016.

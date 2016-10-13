@@ -1,4 +1,4 @@
-package com.snews.pison.snews;
+package com.snews.pison.snews.utils;
 
 import android.content.Context;
 import android.support.v7.widget.GridLayoutManager;

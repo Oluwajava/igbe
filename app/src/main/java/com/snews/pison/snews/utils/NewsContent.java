@@ -1,4 +1,6 @@
-package com.snews.pison.snews;
+package com.snews.pison.snews.utils;
+
+import com.snews.pison.snews.R;
 
 import java.util.ArrayList;
 

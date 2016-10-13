@@ -9,6 +9,7 @@ import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Html;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -38,6 +39,7 @@ public class SplashScreen  extends AppCompatActivity {
 
         // Checking for first time launch - before calling setContentView()
         prefManager = new PrefManager(this);
+        Log.d("test", "Splash Screen: "+prefManager.isSelectionMade());
         if (!prefManager.isFirstTimeLaunch()) {
             launchHomeScreen();
             finish();
@@ -131,7 +133,18 @@ public class SplashScreen  extends AppCompatActivity {
 
     private void launchHomeScreen() {
         prefManager.setFirstTimeLaunch(false);
-        startActivity(new Intent(SplashScreen.this, Selection.class));
+
+        Log.d("Test", "LaunchHomeScreen: "+prefManager.isSelectionMade());
+
+        if(prefManager.isSelectionMade()) {
+//            prefManager.setSelectionMade(false);
+//            Log.d("Test", "AfterSelection: "+prefManager.isSelectionMade());
+            startActivity(new Intent(SplashScreen.this, Selection.class));
+        }else {
+            startActivity(new Intent(SplashScreen.this, MenuFragment.class));
+        }
+
+
         finish();
     }
 
