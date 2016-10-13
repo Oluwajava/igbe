@@ -20,9 +20,6 @@
         <activity
             android:name=".Selection"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
-        <activity
-            android:name=".MenuActivity"
-            android:theme="@style/AppTheme" />
         <activity android:name=".MenuFragment"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"></activity>
     </application>

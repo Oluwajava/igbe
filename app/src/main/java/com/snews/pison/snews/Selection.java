@@ -44,7 +44,7 @@ public class Selection extends AppCompatActivity {
                    pref.setSelectionMade(false);
                    pref.setFavourites(NewsContent.getFavouritesSources());
                    Log.d("Test", "Pref: "+pref.isSelectionMade());
-                   startActivity(new Intent(Selection.this, MenuActivity.class));
+                   startActivity(new Intent(Selection.this, MenuFragment.class));
                }
            }
         );
