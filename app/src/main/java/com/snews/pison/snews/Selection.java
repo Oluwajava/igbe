@@ -62,7 +62,7 @@ public class Selection extends AppCompatActivity {
         }
 
         recyclerView = (RecyclerView)findViewById(R.id.recycler_view);
-        recyclerView.setLayoutManager(new GridAutofitLayoutManager(this, 280));
+        recyclerView.setLayoutManager(new GridAutofitLayoutManager(this, 290));
         recyclerView.setHasFixedSize(true);
         adapter = new ConnectAdapter(list, this);
         recyclerView.setAdapter(adapter);
