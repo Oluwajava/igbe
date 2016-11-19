@@ -7,8 +7,6 @@ import android.util.TypedValue;
 
 /**
  * Created by Olusegun Olaosebikan on 10/11/2016.
- * Got this code online(instead of using StaggeredGridLayout this GridLayout can auto adjust the number of cards
- * baseed on the screen size)
  */
 public class GridAutofitLayoutManager extends GridLayoutManager {
     private int mColumnWidth;

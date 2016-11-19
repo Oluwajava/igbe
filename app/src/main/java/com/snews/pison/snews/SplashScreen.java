@@ -19,6 +19,10 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
+
 /**
  * Created by Olusegun Olaosebikan on 10/11/2016.
  */
@@ -30,16 +34,19 @@ public class SplashScreen  extends AppCompatActivity {
     private TextView[] dots;
     private int[] layouts;
     private int[] btnColor;
-    private Button btnSkip, btnNext;
+    private Button btnSkip;
+    private Button btnNext;
     private PrefManager prefManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+
+
         // Checking for first time launch - before calling setContentView()
         prefManager = new PrefManager(this);
-        Log.d("test", "Splash Screen: "+prefManager.isSelectionMade());
+        Log.d("Test", "isSelectionMade: "+prefManager.isSelectionMade());
         if (!prefManager.isFirstTimeLaunch()) {
             launchHomeScreen();
             finish();
@@ -51,7 +58,7 @@ public class SplashScreen  extends AppCompatActivity {
         }
 
         setContentView(R.layout.splash_screen);
-
+//        ButterKnife.bind(this);
         viewPager = (ViewPager) findViewById(R.id.view_pager);
         dotsLayout = (LinearLayout) findViewById(R.id.layoutDots);
         btnSkip = (Button) findViewById(R.id.btn_skip);
@@ -133,17 +140,12 @@ public class SplashScreen  extends AppCompatActivity {
 
     private void launchHomeScreen() {
         prefManager.setFirstTimeLaunch(false);
-
-        Log.d("Test", "LaunchHomeScreen: "+prefManager.isSelectionMade());
-
-        if(prefManager.isSelectionMade()) {
-//            prefManager.setSelectionMade(false);
-//            Log.d("Test", "AfterSelection: "+prefManager.isSelectionMade());
-            startActivity(new Intent(SplashScreen.this, Selection.class));
-        }else {
+        if(prefManager.isSelectionMade()){
             startActivity(new Intent(SplashScreen.this, MenuFragment.class));
-        }
+        }else{
+            startActivity(new Intent(SplashScreen.this, Selection.class));
 
+        }
 
         finish();
     }

@@ -2,10 +2,8 @@ package com.snews.pison.snews;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.util.Log;
 
 import java.util.ArrayList;
-import java.util.Set;
 
 /**
  * Created by Olusegun Olaosebikan on 10/11/2016.
@@ -38,15 +36,23 @@ public class PrefManager {
     }
 
     public void setSelectionMade(Boolean isSelectionMande) {
+        //changes the value when selection is made
         editor.putBoolean(IS_SELECTION_MADE, isSelectionMande);
         editor.commit();
     }
     public void setFavourites(ArrayList<String> favourites) {
-
-        editor.putString("favourites", favourites.toArray().toString());
+        //add list of favourites news sources selected by user to sharedpref
+        String fav = "";
+        for(String val: favourites) {
+            fav = fav+" "+val;
+        }
+        editor.putString("favourites", fav);
         editor.commit();
 
-        Log.d("Test", "Val: "+favourites.toArray().toString());
+    }
+
+    public String getFavourites() {
+        return pref.getString("favourites", "");
     }
 
     //used to check to know if the application is launched for the first time
@@ -54,5 +60,5 @@ public class PrefManager {
         return pref.getBoolean(IS_FIRST_TIME_LAUNCH, true);
     }
 
-    public boolean isSelectionMade() { return pref.getBoolean(IS_SELECTION_MADE, true); }
+    public boolean isSelectionMade() { return pref.getBoolean(IS_SELECTION_MADE, false); }
 }

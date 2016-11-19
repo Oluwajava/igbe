@@ -34,6 +34,8 @@ public class NewsContent {
 
     public static String[] getName() { return name; }
 
+    public static String getName( int position ) { return name[position]; }
+
     public static void setFavouritesSources(ArrayList<String> fav) {
         favouritesSources = fav;
     }

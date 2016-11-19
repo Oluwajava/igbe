@@ -41,10 +41,18 @@ public class ConnectAdapter extends RecyclerView.Adapter<ConnectAdapter.ConnectV
     }
 
     @Override
+    public void onViewRecycled(ConnectViewHolder holder) {
+        super.onViewRecycled(holder);
+        holder.setIsRecyclable(false);
+    }
+
+    @Override
     public void onBindViewHolder(ConnectViewHolder holder, int position) {
         Connect con = connects.get(position);
         holder.person_image.setImageResource(con.getImage_id());
+
     }
+
 
     @Override
     public int getItemCount() {
@@ -58,6 +66,7 @@ public class ConnectAdapter extends RecyclerView.Adapter<ConnectAdapter.ConnectV
         ImageView person_image;
         public ConnectViewHolder(View view){
             super(view);
+            setIsRecyclable(false);
             person_image = (ImageView)view.findViewById(R.id.content_image);
             relView = (RelativeLayout)view.findViewById(R.id.relView);
             cardView = (CardView)view.findViewById(R.id.card_view);
@@ -74,8 +83,8 @@ public class ConnectAdapter extends RecyclerView.Adapter<ConnectAdapter.ConnectV
 
                      */
                     if(favourites.indexOf(new String(""+position)) != -1){
-
-                        cardView.setBackgroundColor(Color.WHITE);
+                        Log.d("Test", "Background reset");
+                        relView.setBackgroundColor(Color.WHITE);
                         favourites.remove(favourites.indexOf(new String(""+position)));
                     }else{
                         /*
@@ -86,12 +95,11 @@ public class ConnectAdapter extends RecyclerView.Adapter<ConnectAdapter.ConnectV
                         Bitmap bitmap = BitmapFactory.decodeResource(ctx.getResources(), NewsContent.getImageId(position));
                         ColorArt colorArt = new ColorArt(bitmap);
 
-                        Log.d("Color", "Values: "+colorArt.getBackgroundColor());
-                        cardView.setBackgroundColor(colorArt.getBackgroundColor());
+                        Log.d("Test", "Background set");
+                        relView.setBackgroundColor(colorArt.getBackgroundColor());
                         favourites.add("" + position);
 
                         NewsContent.setFavouritesSources(favourites);
-
                     }
 
 

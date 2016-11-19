@@ -6,6 +6,9 @@
     <color name="blue">#007AFF</color>
     <color name="footerColor">#f5f5f5</color>
     <color name="unselected">#7f7f7f</color>
+    <color name="tile_color_1">#04b8c9</color>
+    <color name="main_news_background">#F5F4F0</color>
+    <color name="header_color">#62abfb</color>
 
     <!-- Screens background color-->
     <color name="bg_screen1">#fff</color>

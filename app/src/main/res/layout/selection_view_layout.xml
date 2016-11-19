@@ -17,7 +17,7 @@
             android:layout_height="wrap_content"
             android:background="#fff"
             android:id="@+id/relView"
-            android:padding="2dp"
+            android:padding="4dp"
             >
 
             <ImageView
@@ -26,7 +26,8 @@
                 android:src="@drawable/icon_adventure"
                 android:id="@+id/content_image"
                 android:layout_alignParentTop="true"
-                android:layout_centerHorizontal="true" />
+                android:layout_centerHorizontal="true"
+                />
 
 
         </RelativeLayout>

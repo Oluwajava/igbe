@@ -11,6 +11,27 @@
         android:layout_height="match_parent">
 
         <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/title_layout"
+            android:background="#fff">
+
+            <!--#F9F9F9-->
+
+            <TextView
+                android:text="TextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/currentTitle"
+                android:textAlignment="center"
+                android:textSize="20sp"
+                android:padding="15dp"
+                android:textColor="#000"
+                android:fontFamily="serif-monospace" />
+        </LinearLayout>
+
+        <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -150,8 +171,8 @@
             android:layout_height="match_parent"
             android:layout_centerHorizontal="true"
             android:layout_above="@+id/linearLayout2"
-            android:id="@+id/frame_container">
-
+            android:id="@+id/frame_container"
+            android:layout_below="@+id/title_layout">
 
 
         </FrameLayout>

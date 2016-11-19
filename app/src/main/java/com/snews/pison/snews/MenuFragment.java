@@ -1,38 +1,45 @@
 package com.snews.pison.snews;
 
+import android.content.res.AssetManager;
 import android.graphics.Color;
-import android.media.Image;
+import android.graphics.Typeface;
+import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
+
 import com.snews.pison.snews.fragments.FragmentFactory;
+import com.snews.pison.snews.utils.FontFactory;
 
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Objects;
+import java.util.Locale;
 
 public class MenuFragment extends AppCompatActivity implements View.OnClickListener {
     ArrayList<TextView> textArrayList;
     ArrayList<ImageButton> buttonArrayList;
     ImageButton btnForYou, btnFavourite, btnExplore, btnSearch, btnSaved;
-    TextView forYouText, favouritesText, exploreText, searchText, savedText;
+    TextView forYouText, favouritesText, exploreText, searchText, savedText, currentTitle;
+    AssetManager am;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu_fragment);
 
-        //Load the first fragment for you
-        loadFragment("For You");
-
         //initialises the imagebutton and textview used
         widgetInitialization();
 
+        //Load the first fragment for you
+        loadFragment("For You");
+
+
+
     }
+
+
 
     private void widgetInitialization() {
 
@@ -49,6 +56,7 @@ public class MenuFragment extends AppCompatActivity implements View.OnClickListe
         exploreText = (TextView) findViewById(R.id.exploreText);
         searchText = (TextView) findViewById(R.id.searchText);
         savedText = (TextView) findViewById(R.id.savedText);
+        currentTitle = (TextView) findViewById(R.id.currentTitle);
 
         // initialializing button for click listener
         btnForYou.setOnClickListener(this);
@@ -69,14 +77,24 @@ public class MenuFragment extends AppCompatActivity implements View.OnClickListe
             buttonArrayList.add(buttonAdd);
         }
 
+        am = getApplicationContext().getAssets();
         // adding textview from array to ArrayList
         for(TextView textAdd: txt){
-            textArrayList.add(textAdd);
+//            textArrayList.add(textAdd);
+//            textAdd.setTypeface(FontFactory.getTypeFace(am, "regular"));
         }
+
+
 
     }
 
     private void loadFragment(String type) {
+        Log.d("Test", "Button "+type+" Clicked");
+
+
+        Typeface typeFace = Typeface.createFromAsset(am, String.format(Locale.US, "fonts/%s", "ssbold.ttf"));
+        currentTitle.setTypeface(typeFace);
+        currentTitle.setText(type);
         Fragment fragment = FragmentFactory.getFragment(type);
         FragmentManager fragmentManager = getSupportFragmentManager();
         fragmentManager.beginTransaction()
@@ -126,4 +144,6 @@ public class MenuFragment extends AppCompatActivity implements View.OnClickListe
         textClicked.setTextColor(Color.rgb(0, 122, 255));
 
     }
+
+
 }

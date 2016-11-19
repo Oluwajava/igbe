@@ -1,7 +1,5 @@
 package com.snews.pison.snews.fragments;
 
-import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -10,7 +8,9 @@ import android.view.ViewGroup;
 
 import com.snews.pison.snews.R;
 
-
+/**
+ * User can search for article using certain keywords
+ */
 public class FragmentSearch extends Fragment {
 
 

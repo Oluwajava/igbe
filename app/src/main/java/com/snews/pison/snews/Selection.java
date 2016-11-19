@@ -1,8 +1,8 @@
 package com.snews.pison.snews;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
@@ -39,14 +39,16 @@ public class Selection extends AppCompatActivity {
         initializeCard();
 
         btnContinue.setOnClickListener(new View.OnClickListener() {
-               @Override
-               public void onClick(View v) {
-                   pref.setSelectionMade(false);
-                   pref.setFavourites(NewsContent.getFavouritesSources());
-                   Log.d("Test", "Pref: "+pref.isSelectionMade());
-                   startActivity(new Intent(Selection.this, MenuFragment.class));
-               }
-           }
+                                           @Override
+                                           public void onClick(View v) {
+
+                                               pref.setSelectionMade(true);
+                                               pref.setFavourites(NewsContent.getFavouritesSources());
+                                               Log.d("Test", "Array: "+ NewsContent.getFavouritesSources().toArray().toString());
+                                               Log.d("Test", "Pref: "+pref.isSelectionMade());
+                                               startActivity(new Intent(Selection.this, MenuFragment.class));
+                                           }
+                                       }
         );
     }
 
@@ -62,7 +64,8 @@ public class Selection extends AppCompatActivity {
         }
 
         recyclerView = (RecyclerView)findViewById(R.id.recycler_view);
-        recyclerView.setLayoutManager(new GridAutofitLayoutManager(this, 290));
+        //the value passed to the layout manager determines the size of each card
+        recyclerView.setLayoutManager(new GridAutofitLayoutManager(this, 160));
         recyclerView.setHasFixedSize(true);
         adapter = new ConnectAdapter(list, this);
         recyclerView.setAdapter(adapter);

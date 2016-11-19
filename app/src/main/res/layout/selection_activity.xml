@@ -48,6 +48,7 @@
             android:layout_below="@+id/textView3"
             android:layout_marginTop="20dp"
             android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
             android:layout_alignParentStart="true">
 
         </android.support.v7.widget.RecyclerView>
@@ -67,25 +68,24 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="70dp"
+        android:layout_height="100dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:id="@+id/test"
         >
-
-
         <Button
-            android:text="Continue"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="Continue"
+            android:id="@+id/button"
             android:background="@drawable/curved_btn"
             android:textColor="#fff"
-            android:id="@+id/button"
-            android:layout_alignParentTop="true"
+            android:layout_centerVertical="true"
             android:layout_centerHorizontal="true"
-            android:paddingLeft="30dp"
-            android:paddingRight="30dp"/>
-
+            android:paddingLeft="50dp"
+            android:paddingRight="50dp"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"/>
     </RelativeLayout>
 
 </RelativeLayout>
