@@ -26,7 +26,7 @@ public class SavedNewsAdapter extends RecyclerView.Adapter<SavedNewsAdapter.Save
     public static Context ctx;
     public static AssetManager assetManager;
 
-    public SavedNewsAdapter(ArrayList<News> news, AssetManager assetManager, Context ctx){
+    public SavedNewsAdapter(ArrayList<News> news, Context ctx){
         this.news = news;
         this.assetManager = assetManager;
         this.ctx = ctx;
@@ -83,15 +83,7 @@ public class SavedNewsAdapter extends RecyclerView.Adapter<SavedNewsAdapter.Save
             time = (TextView)view.findViewById(R.id.time);
             relView = (RelativeLayout)view.findViewById(R.id.relView);
             cardView = (CardView)view.findViewById(R.id.card_view);
-            setFont();
-
         }
 
-        public void setFont(){
-            title.setTypeface(FontFactory.getTypeFace(assetManager, "tnrbold"));
-            content.setTypeface(FontFactory.getTypeFace(assetManager, "timeburnernormal"));
-            source.setTypeface(FontFactory.getTypeFace(assetManager, "timeburnernormal"));
-            time.setTypeface(FontFactory.getTypeFace(assetManager, "timeburnernormal"));
-        }
     }
 }

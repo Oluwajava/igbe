@@ -80,7 +80,7 @@ public class MenuFragment extends AppCompatActivity implements View.OnClickListe
         am = getApplicationContext().getAssets();
         // adding textview from array to ArrayList
         for(TextView textAdd: txt){
-//            textArrayList.add(textAdd);
+            textArrayList.add(textAdd);
 //            textAdd.setTypeface(FontFactory.getTypeFace(am, "regular"));
         }
 
@@ -93,7 +93,7 @@ public class MenuFragment extends AppCompatActivity implements View.OnClickListe
 
 
         Typeface typeFace = Typeface.createFromAsset(am, String.format(Locale.US, "fonts/%s", "ssbold.ttf"));
-        currentTitle.setTypeface(typeFace);
+//        currentTitle.setTypeface(typeFace);
         currentTitle.setText(type);
         Fragment fragment = FragmentFactory.getFragment(type);
         FragmentManager fragmentManager = getSupportFragmentManager();

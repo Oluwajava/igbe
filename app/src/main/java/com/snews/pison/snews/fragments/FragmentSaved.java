@@ -44,7 +44,6 @@ public class FragmentSaved extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.fragment_saved, container, false);
-        AssetManager am = getActivity().getApplicationContext().getAssets();
         int count = 0;
 
         //loops through the array and add it to an ArrayList
@@ -64,7 +63,7 @@ public class FragmentSaved extends Fragment {
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setHasFixedSize(true);
         recyclerView.setNestedScrollingEnabled(false);
-        adapter = new SavedNewsAdapter(list, am, getActivity());
+        adapter = new SavedNewsAdapter(list, getActivity());
         adapter.setHasStableIds(true);
         recyclerView.setAdapter(adapter);
 
