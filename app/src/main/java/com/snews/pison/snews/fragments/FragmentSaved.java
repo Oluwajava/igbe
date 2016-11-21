@@ -3,18 +3,23 @@ package com.snews.pison.snews.fragments;
 import android.content.res.AssetManager;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.snews.pison.snews.R;
 import com.snews.pison.snews.utils.News;
 import com.snews.pison.snews.utils.SavedNewsAdapter;
 
 import java.util.ArrayList;
+
+import butterknife.ButterKnife;
 
 
 public class FragmentSaved extends Fragment {
@@ -39,13 +44,30 @@ public class FragmentSaved extends Fragment {
     String[] source = {"ESPN", "ESPN", "ESPN", "ESPN", "ESPN", "ESPN", "ESPN", "ESPN"};
     String[] time = {"2h", "2h", "2h", "2h", "2h", "2h", "2h", "2h"};
     int[] thumbnail_id = {R.drawable.mes, R.drawable.mesi, R.drawable.mes, R.drawable.mesi, R.drawable.mes, R.drawable.mesi, R.drawable.mes, R.drawable.mesi};
+
+
+    /** Required empty constructor */
+    public FragmentSaved() {}
+
+    public static FragmentSaved newInstance() {
+        return new FragmentSaved();
+    }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.fragment_saved, container, false);
-        int count = 0;
 
+        // Setup the toolbar
+        Toolbar toolbar = ButterKnife.findById(rootView, R.id.toolbar);
+        TextView toolBarTitle = ButterKnife.findById(toolbar, R.id.toolbar_title);
+        toolBarTitle.setText(R.string.saved_tab);
+        AppCompatActivity activity = (AppCompatActivity) getActivity();
+        activity.setSupportActionBar(toolbar);
+        activity.getSupportActionBar().setDisplayShowTitleEnabled(false);
+
+        int count = 0;
         //loops through the array and add it to an ArrayList
         for(int image: thumbnail_id){
             News news = new News.Builder(image, title[count])

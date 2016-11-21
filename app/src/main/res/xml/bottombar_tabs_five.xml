@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<tabs>
+    <!-- For You -->
+    <tab
+        id="@+id/for_you"
+        icon="@drawable/ic_local_library_black_24dp"
+        title="@string/for_you_tab"
+        activeColor="@color/tabActiveColor"
+        inactiveColor="@color/tabInactiveColor"
+        barColorWhenSelected="@color/defaultBarColor"/>
+
+    <!-- Favorites -->
+    <tab
+        id="@+id/favorites"
+        icon="@drawable/ic_favorite_black_24dp"
+        title="@string/favorites_tab"
+        activeColor="@color/tabActiveColor"
+        inactiveColor="@color/tabInactiveColor"
+        barColorWhenSelected="@color/defaultBarColor"/>
+
+    <!-- Explore -->
+    <tab
+        id="@+id/explore"
+        icon="@drawable/ic_explore_black_24dp"
+        title="@string/explore_tab"
+        activeColor="@color/tabActiveColor"
+        inactiveColor="@color/tabInactiveColor"
+        barColorWhenSelected="@color/defaultBarColor"/>
+
+    <!-- Search -->
+    <tab
+        id="@+id/search"
+        icon="@drawable/ic_search_black_24dp"
+        title="@string/search_tab"
+        activeColor="@color/tabActiveColor"
+        inactiveColor="@color/tabInactiveColor"
+        barColorWhenSelected="@color/defaultBarColor"/>
+
+    <!-- Saved -->
+    <tab
+        id="@+id/saved"
+        icon="@drawable/ic_bookmark_black_24dp"
+        title="@string/saved_tab"
+        activeColor="@color/tabActiveColor"
+        inactiveColor="@color/tabInactiveColor"
+        barColorWhenSelected="@color/defaultBarColor"/>
+</tabs>

@@ -44,5 +44,12 @@
         <item>@drawable/icon_top</item>
     </integer-array>
 
+    <!-- Bottom navigation tabs title -->
+    <string name="for_you_tab">For You</string>
+    <string name="favorites_tab">Favorites</string>
+    <string name="explore_tab">Explore</string>
+    <string name="search_tab">Search</string>
+    <string name="saved_tab">Saved</string>
+
 
 </resources>

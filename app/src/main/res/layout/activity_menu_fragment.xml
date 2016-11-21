@@ -1,180 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#fff">
+    android:layout_height="match_parent">
 
-    <RelativeLayout
+    <!-- Fragments will be injected here -->
+    <FrameLayout
+        android:id="@+id/fragment_container"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_gravity="center_horizontal"></FrameLayout>
 
-        <LinearLayout
-            android:orientation="vertical"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/title_layout"
-            android:background="#fff">
+    <!-- Bottom navigation bar -->
+    <com.roughike.bottombar.BottomBar
+        android:id="@+id/bottom_bar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:layout_alignParentBottom="true"
+        app:bb_behavior="shifting"
+        app:bb_inActiveTabAlpha="0.5"
+        app:bb_titleTypeFace="fonts/Roboto-Regular.ttf"
+        app:bb_inActiveTabColor="@color/tabInactiveColor"
+        app:bb_titleTextAppearance="@style/TabTextAppearance"
+        app:bb_tabXmlResource="@xml/bottombar_tabs_five" />
 
-            <!--#F9F9F9-->
-
-            <TextView
-                android:text="TextView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/currentTitle"
-                android:textAlignment="center"
-                android:textSize="20sp"
-                android:padding="15dp"
-                android:textColor="#000"
-                android:fontFamily="serif-monospace" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"
-            android:id="@+id/linearLayout2"
-            android:weightSum="5"
-            android:background="@color/footerColor">
-
-            <LinearLayout
-                android:orientation="vertical"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1">
-
-                <ImageButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="39dp"
-                    app:srcCompat="@drawable/ic_mine"
-                    android:id="@+id/forYou"
-                    android:background="@color/footerColor"
-                    android:tint="@color/blue"
-                    android:layout_gravity="center_horizontal"
-                    />
-
-                <TextView
-                    android:text="For You"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/forYouText"
-                    android:textAlignment="center"
-                    android:textColor="@color/blue"
-                    />
-            </LinearLayout>
-
-            <LinearLayout
-                android:orientation="vertical"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1">
-
-                <ImageButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="39dp"
-                    app:srcCompat="@drawable/ic_favourite"
-                    android:id="@+id/favourites"
-                    android:background="@color/footerColor"
-                    android:layout_gravity="center_horizontal"
-                    android:tint="@color/unselected"/>
-
-                <TextView
-                    android:text="Favourites"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/favouritesText"
-                    android:textAlignment="center"
-                    android:textColor="@color/unselected"/>
-            </LinearLayout>
-
-            <LinearLayout
-                android:orientation="vertical"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1">
-
-                <ImageButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="39dp"
-                    app:srcCompat="@drawable/ic_explore"
-                    android:id="@+id/explore"
-                    android:background="@color/footerColor"
-                    android:layout_gravity="center_horizontal"
-                    android:tint="@color/unselected"/>
-
-                <TextView
-                    android:text="Explore"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/exploreText"
-                    android:textAlignment="center"
-                    android:textColor="@color/unselected"/>
-            </LinearLayout>
-
-            <LinearLayout
-                android:orientation="vertical"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                >
-
-                <ImageButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="39dp"
-                    app:srcCompat="@drawable/ic_search"
-                    android:id="@+id/search"
-                    android:background="@color/footerColor"
-                    android:layout_gravity="center_horizontal"
-                    android:tint="@color/unselected"/>
-
-                <TextView
-                    android:text="Search"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/searchText"
-                    android:textAlignment="center"
-                    android:textColor="@color/unselected"/>
-            </LinearLayout>
-
-            <LinearLayout
-                android:orientation="vertical"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1">
-
-                <ImageButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="39dp"
-                    app:srcCompat="@drawable/ic_saved"
-                    android:id="@+id/saved"
-                    android:background="@color/footerColor"
-                    android:layout_gravity="center_horizontal"
-                    android:tint="@color/unselected"/>
-
-                <TextView
-                    android:text="Saved"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/savedText"
-                    android:textAlignment="center"
-                    android:textColor="@color/unselected"/>
-            </LinearLayout>
-
-        </LinearLayout>
-
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_centerHorizontal="true"
-            android:layout_above="@+id/linearLayout2"
-            android:id="@+id/frame_container"
-            android:layout_below="@+id/title_layout">
-
-
-        </FrameLayout>
-    </RelativeLayout>
-</LinearLayout>
+</RelativeLayout>

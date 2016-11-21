@@ -2,10 +2,13 @@ package com.snews.pison.snews.fragments;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.support.v7.widget.Toolbar;
+import android.widget.TextView;
 
 import com.snews.pison.snews.PrefManager;
 import com.snews.pison.snews.R;
@@ -14,7 +17,12 @@ import com.snews.pison.snews.utils.ConnectAdapter;
 import com.snews.pison.snews.utils.GridAutofitLayoutManager;
 import com.snews.pison.snews.utils.NewsContent;
 
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
 
 /**
  * This class shows the list of sources
@@ -27,11 +35,29 @@ public class FragmentFavourite extends Fragment {
     RecyclerView.LayoutManager layoutManager;
     ArrayList<Connect> list = new ArrayList<Connect>();
     private PrefManager pref;
+
+    @BindView(R.id.toolbar) Toolbar toolBar;
+
+    /** Required empty constructor */
+    public FragmentFavourite() {}
+
+    public static FragmentFavourite newInstance() {
+        return new FragmentFavourite();
+    }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.fragment_favourite, container, false);
+
+        // Setup the toolbar
+        Toolbar toolbar = ButterKnife.findById(rootView, R.id.toolbar);
+        TextView toolBarTitle = ButterKnife.findById(toolbar, R.id.toolbar_title);
+        toolBarTitle.setText(R.string.favorites_tab);
+        AppCompatActivity activity = (AppCompatActivity) getActivity();
+        activity.setSupportActionBar(toolbar);
+        activity.getSupportActionBar().setDisplayShowTitleEnabled(false);
 
         pref = new PrefManager(getActivity());
         recyclerView = (RecyclerView)rootView.findViewById(R.id.recycler_view);
@@ -67,6 +93,5 @@ public class FragmentFavourite extends Fragment {
         adapter = new ConnectAdapter(list, getActivity());
         recyclerView.setAdapter(adapter);
     }
-
 
 }

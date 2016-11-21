@@ -19,9 +19,8 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
 import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
+import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 
 /**
@@ -121,6 +120,11 @@ public class SplashScreen  extends AppCompatActivity {
         });
     }
 
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
+    }
+
     private void addBottomDots(int currentPage) {
         dots = new TextView[layouts.length];
 
@@ -149,7 +153,7 @@ public class SplashScreen  extends AppCompatActivity {
     private void launchHomeScreen() {
         prefManager.setFirstTimeLaunch(false);
         if(prefManager.isSelectionMade()){
-            startActivity(new Intent(SplashScreen.this, MenuFragment.class));
+            startActivity(new Intent(SplashScreen.this, MenuActivity.class));
         }else{
             startActivity(new Intent(SplashScreen.this, Selection.class));
 
