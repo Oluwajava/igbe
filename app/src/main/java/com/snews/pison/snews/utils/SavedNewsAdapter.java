@@ -56,7 +56,10 @@ public class SavedNewsAdapter extends RecyclerView.Adapter<SavedNewsAdapter.Save
         //set values of card
         News newsId = news.get(position);
         String url = "http://192.168.253.1/disciples/img.jpg";
-        Glide.with(ctx).load("http://goo.gl/gEgYUd").into(holder.thumbnailImage);
+        if(position > 0)
+            Glide.with(ctx).load("http://goo.gl/gEgYUd").thumbnail(0.1f).into(holder.thumbnailImage);
+        else
+            Glide.with(ctx).load("http://goo.gl/gEgYUd").into(holder.thumbnailImage);
         holder.title.setText(newsId.getTitle());
         holder.content.setText(newsId.getContent());
         holder.source.setText(newsId.getSource());

@@ -8,8 +8,8 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
-import com.snews.pison.snews.utils.Connect;
-import com.snews.pison.snews.utils.ConnectAdapter;
+import com.snews.pison.snews.utils.SelectionItem;
+import com.snews.pison.snews.utils.SelectionAdapter;
 import com.snews.pison.snews.utils.GridAutofitLayoutManager;
 import com.snews.pison.snews.utils.NewsContent;
 
@@ -21,7 +21,7 @@ public class Selection extends AppCompatActivity {
     RecyclerView recyclerView;
     RecyclerView.Adapter adapter;
     RecyclerView.LayoutManager layoutManager;
-    ArrayList<Connect> list = new ArrayList<Connect>();
+    ArrayList<SelectionItem> list = new ArrayList<SelectionItem>();
     Button btnContinue;
     String[] name;
     int[] image_id;
@@ -58,16 +58,16 @@ public class Selection extends AppCompatActivity {
 
         //loops through the array and add it to an ArrayList
         for(String Name: name){
-            Connect connect = new Connect(image_id[count], Name);
+            SelectionItem selectionItem = new SelectionItem(image_id[count], Name);
             count++;
-            list.add(connect);
+            list.add(selectionItem);
         }
 
         recyclerView = (RecyclerView)findViewById(R.id.recycler_view);
         //the value passed to the layout manager determines the size of each card
-        recyclerView.setLayoutManager(new GridAutofitLayoutManager(this, 160));
+        recyclerView.setLayoutManager(new GridAutofitLayoutManager(this, 240));
         recyclerView.setHasFixedSize(true);
-        adapter = new ConnectAdapter(list, this);
+        adapter = new SelectionAdapter(list, this);
         recyclerView.setAdapter(adapter);
 
         btnContinue = (Button)findViewById(R.id.button);

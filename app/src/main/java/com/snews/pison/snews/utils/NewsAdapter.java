@@ -45,9 +45,9 @@ public class NewsAdapter  extends RecyclerView.Adapter<NewsAdapter.NewsViewHolde
     @Override
     public void onBindViewHolder(NewsAdapter.NewsViewHolder holder, int position) {
         News newsId = news.get(position);
-        holder.thumbnailImage.setImageResource(newsId.getSourceId());
-        holder.sourceImage.setImageResource(newsId.getThumbnailId());
-        holder.title.setText(newsId.getTitle());
+//        holder.thumbnailImage.setImageResource(newsId.getSourceId());
+//        holder.sourceImage.setImageResource(newsId.getThumbnailId());
+//        holder.title.setText(newsId.getTitle());
 
     }
 

@@ -38,7 +38,7 @@ public class FragmentSaved extends Fragment {
             "An enthusiast recent graduate with B.sc in political science (public administration) and international relations. Excellent research,"};
     String[] source = {"ESPN", "ESPN", "ESPN", "ESPN", "ESPN", "ESPN", "ESPN", "ESPN"};
     String[] time = {"2h", "2h", "2h", "2h", "2h", "2h", "2h", "2h"};
-    int[] thumbnail_id = {R.drawable.mes, R.drawable.mesi, R.drawable.mes, R.drawable.mesi, R.drawable.mes, R.drawable.mesi, R.drawable.mes, R.drawable.mesi};
+    String[] thumbnail_id = {"http://goo.gl/gEgYUd", "http://goo.gl/gEgYUd", "http://goo.gl/gEgYUd", "http://goo.gl/gEgYUd", "http://goo.gl/gEgYUd", "http://goo.gl/gEgYUd", "http://goo.gl/gEgYUd", "http://goo.gl/gEgYUd"};
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -47,7 +47,7 @@ public class FragmentSaved extends Fragment {
         int count = 0;
 
         //loops through the array and add it to an ArrayList
-        for(int image: thumbnail_id){
+        for(String image: thumbnail_id){
             News news = new News.Builder(image, title[count])
                                 .content(content[count])
                                 .source(source[count])

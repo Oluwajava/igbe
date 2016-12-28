@@ -2,12 +2,183 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context="com.snews.pison.snews.fragments.FragmentSearch">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
+        android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Search" />
+        android:layout_height="wrap_content"
+        android:weightSum="100"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp">
+
+        <!-- Side bar start here-->
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="65"
+            android:weightSum="100">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="50"
+                android:layout_marginBottom="10dp">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="130dp"
+                    android:id="@+id/sub_image_1"
+                    android:background="@drawable/testt" />
+
+                <TextView
+                    android:text="Make your house great again this summer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/sub_title_1"
+                    android:textSize="20sp"
+                    android:textColor="#000" />
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:text="Bloomberg"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/sub_source_1"
+                        android:layout_weight="1"
+                        android:textColor="@color/unselected" />
+
+                    <TextView
+                        android:text="1h ago"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/sub_time_1"
+                        android:layout_weight="1"
+                        android:textColor="@color/unselected"
+                        android:textAlignment="textEnd" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="130dp"
+                    android:id="@+id/sub_image_2"
+                    android:background="@drawable/sport" />
+
+                <TextView
+                    android:text="Lionel Messi win Ballon d' Or again"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/sub_title_2"
+                    android:textSize="20sp"
+                    android:textColor="#000" />
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:text="Bloomberg"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/sub_source_2"
+                        android:layout_weight="1"
+                        android:textColor="@color/unselected" />
+
+                    <TextView
+                        android:text="2h ago"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/sub_time_2"
+                        android:layout_weight="1"
+                        android:textColor="@color/unselected"
+                        android:textAlignment="textEnd" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+        <!-- side bar ends here-->
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="35"
+            android:layout_marginLeft="20dp"
+            android:background="@color/main_news_background">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="280dp"
+
+                android:id="@+id/main_image"
+                android:background="@drawable/msn" />
+
+            <TextView
+                android:text="Secret of MSN"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/main_title"
+                android:textAlignment="center"
+                android:textSize="30sp"
+                android:layout_marginTop="10dp"
+                android:textColor="@color/unselected" />
+
+            <TextView
+                android:text="However, in case you face any difficulty (say a developer account problem) in the official website..."
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/main_content"
+                android:padding="10dp"
+                android:textAlignment="center"
+                android:textColor="@color/unselected"
+                android:textAllCaps="true" />
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:text="SkySport"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/main_source"
+                    android:layout_weight="1"
+                    android:textColor="@color/unselected"
+                    android:layout_marginLeft="10dp" />
+
+                <TextView
+                    android:text="1m ago"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/main_time"
+                    android:layout_weight="1"
+                    android:textColor="@color/unselected"
+                    android:textAlignment="textEnd"
+                    android:layout_marginRight="10dp" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
 
 </FrameLayout>

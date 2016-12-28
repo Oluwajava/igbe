@@ -5,18 +5,18 @@ package com.snews.pison.snews.utils;
  */
 
 public class News {
-    private final int thumbnailId;
-    private final int sourceId;
+    private final String thumbnailId;
+    private final String sourceId;
     private final String title;
     private final String content;
     private final String source;
     private final String time;
 
-    public int getThumbnailId() {
+    public String getThumbnailId() {
         return thumbnailId;
     }
 
-    public int getSourceId() {
+    public String getSourceId() {
         return sourceId;
     }
 
@@ -38,21 +38,21 @@ public class News {
 
     public static class Builder {
 //        Require parameters
-        private final int thumbnailId;
+        private final String thumbnailId;
         private final String title;
 
 //        Optional parameters
-        private int sourceId = 0;
+        private String sourceId = null;
         private String content = null;
         private String source = null;
         private String time = null;
 
-        public Builder(int thumbnailId, String title) {
+        public Builder(String thumbnailId, String title) {
             this.thumbnailId = thumbnailId;
             this.title = title;
         }
 
-        public Builder sourceId(int val) {
+        public Builder sourceId(String val) {
             sourceId = val;         return this;
         }
 

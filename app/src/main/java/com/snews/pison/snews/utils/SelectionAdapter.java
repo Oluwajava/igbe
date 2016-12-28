@@ -22,13 +22,13 @@ import java.util.ArrayList;
 /**
  * Created by Olusegun Olaosebikan on 10/11/2016.
  */
-public class ConnectAdapter extends RecyclerView.Adapter<ConnectAdapter.ConnectViewHolder> {
+public class SelectionAdapter extends RecyclerView.Adapter<SelectionAdapter.ConnectViewHolder> {
     public static ArrayList<String> favourites = new ArrayList<>();
-    ArrayList<Connect> connects = new ArrayList<Connect>();
+    ArrayList<SelectionItem> selectionItems = new ArrayList<SelectionItem>();
     public static Context ctx;
 
-    public ConnectAdapter(ArrayList<Connect> connects, Context ctx){
-        this.connects = connects;
+    public SelectionAdapter(ArrayList<SelectionItem> selectionItems, Context ctx){
+        this.selectionItems = selectionItems;
         this.ctx = ctx;
     }
 
@@ -48,7 +48,7 @@ public class ConnectAdapter extends RecyclerView.Adapter<ConnectAdapter.ConnectV
 
     @Override
     public void onBindViewHolder(ConnectViewHolder holder, int position) {
-        Connect con = connects.get(position);
+        SelectionItem con = selectionItems.get(position);
         holder.person_image.setImageResource(con.getImage_id());
 
     }
@@ -56,7 +56,7 @@ public class ConnectAdapter extends RecyclerView.Adapter<ConnectAdapter.ConnectV
 
     @Override
     public int getItemCount() {
-        return connects.size();
+        return selectionItems.size();
     }
 
     public static class ConnectViewHolder extends RecyclerView.ViewHolder{

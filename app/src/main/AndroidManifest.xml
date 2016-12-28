@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:hardwareAccelerated="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".SplashScreen"
+        <activity android:name=".WelcomeScreen"
             android:theme="@style/Theme.AppCompat.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -25,6 +25,11 @@
         </activity>
 
         <activity android:name=".MenuFragment"
+            android:theme="@style/Theme.AppCompat.NoActionBar">
+
+        </activity>
+
+        <activity android:name=".SplashScreen"
             android:theme="@style/Theme.AppCompat.NoActionBar">
 
         </activity>

@@ -9,8 +9,8 @@ import android.view.ViewGroup;
 
 import com.snews.pison.snews.PrefManager;
 import com.snews.pison.snews.R;
-import com.snews.pison.snews.utils.Connect;
-import com.snews.pison.snews.utils.ConnectAdapter;
+import com.snews.pison.snews.utils.SelectionItem;
+import com.snews.pison.snews.utils.SelectionAdapter;
 import com.snews.pison.snews.utils.GridAutofitLayoutManager;
 import com.snews.pison.snews.utils.NewsContent;
 
@@ -25,7 +25,7 @@ public class FragmentFavourite extends Fragment {
     RecyclerView recyclerView;
     RecyclerView.Adapter adapter;
     RecyclerView.LayoutManager layoutManager;
-    ArrayList<Connect> list = new ArrayList<Connect>();
+    ArrayList<SelectionItem> list = new ArrayList<SelectionItem>();
     private PrefManager pref;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -56,15 +56,15 @@ public class FragmentFavourite extends Fragment {
 
         //loops through the array and add it to an ArrayList
         for(String Name: name){
-            Connect connect = new Connect(image[count], Name);
+            SelectionItem selectionItem = new SelectionItem(image[count], Name);
             count++;
-            list.add(connect);
+            list.add(selectionItem);
         }
 
         //the value passed to the layout manager determines the size of each card
-        recyclerView.setLayoutManager(new GridAutofitLayoutManager(getActivity(), 140));
+        recyclerView.setLayoutManager(new GridAutofitLayoutManager(getActivity(), 240));
         recyclerView.setHasFixedSize(true);
-        adapter = new ConnectAdapter(list, getActivity());
+        adapter = new SelectionAdapter(list, getActivity());
         recyclerView.setAdapter(adapter);
     }
 
