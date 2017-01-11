@@ -1,5 +1,6 @@
 package com.snews.pison.snews;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -14,6 +15,8 @@ import com.snews.pison.snews.utils.GridAutofitLayoutManager;
 import com.snews.pison.snews.utils.NewsContent;
 
 import java.util.ArrayList;
+
+import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 
 public class Selection extends AppCompatActivity {
@@ -46,10 +49,15 @@ public class Selection extends AppCompatActivity {
                                                pref.setFavourites(NewsContent.getFavouritesSources());
                                                Log.d("Test", "Array: "+ NewsContent.getFavouritesSources().toArray().toString());
                                                Log.d("Test", "Pref: "+pref.isSelectionMade());
-                                               startActivity(new Intent(Selection.this, MenuFragment.class));
+                                               startActivity(new Intent(Selection.this, MenuActivity.class));
                                            }
                                        }
         );
+    }
+
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
     }
 
     public void initializeCard() {

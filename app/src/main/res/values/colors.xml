@@ -3,6 +3,7 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+    <color name="lightGray">#EEEEEE</color>
     <color name="blue">#007AFF</color>
     <color name="footerColor">#f5f5f5</color>
     <color name="unselected">#7f7f7f</color>
@@ -41,4 +42,9 @@
         <item>@color/dot_dark_screen3</item>
         <item>@color/dot_dark_screen4</item>
     </array>
+
+    <!-- Bottom bar nav colors -->
+    <color name="defaultBarColor">#FFFFFF</color>
+    <color name="tabInactiveColor">#222222</color>
+    <color name="tabActiveColor">@color/colorAccent</color>
 </resources>
