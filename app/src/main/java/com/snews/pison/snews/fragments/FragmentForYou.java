@@ -62,6 +62,11 @@ public class FragmentForYou extends Fragment {
                                 "https://metrouk2.files.wordpress.com/2016/10/617269818.jpg",
                                 "http://static.guim.co.uk/sys-images/Football/Pix/pictures/2015/4/16/1429206099512/Eden-Hazard-009.jpg",
                                 "https://blog-blogmediainc.netdna-ssl.com/upload/SportsBlogcom/2355290/0393288001463260456_filepicker.jpg"};
+
+    public static FragmentForYou newInstance() {
+        return new FragmentForYou();
+    }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {

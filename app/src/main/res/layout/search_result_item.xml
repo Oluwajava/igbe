@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/newsDividerColor"/>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="120dp">
+
+        <!-- News item image -->
+        <android.support.v7.widget.AppCompatImageView
+            android:id="@+id/news_thumb"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_weight="0"
+            android:layout_gravity="center"
+            android:scaleType="centerCrop"
+            android:src="@drawable/mg"/>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <!-- News title brief -->
+            <TextView
+                android:id="@+id/news_title_brief"
+                android:text="More killings in Benghazi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="0dp"
+                android:paddingLeft="6dp"
+                android:paddingRight="5dp"
+                style="@style/SearchItemAppearance"/>
+
+            <!-- News summary -->
+            <TextView
+                android:text="Lorem ispum demis deram ispum param param loreil carat ispusm marak ispum mara maraton isput"
+                android:id="@+id/news_title_summary"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:paddingLeft="6dp"
+                android:paddingRight="5dp"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

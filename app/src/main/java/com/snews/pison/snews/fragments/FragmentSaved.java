@@ -39,6 +39,12 @@ public class FragmentSaved extends Fragment {
     String[] source = {"ESPN", "ESPN", "ESPN", "ESPN", "ESPN", "ESPN", "ESPN", "ESPN"};
     String[] time = {"2h", "2h", "2h", "2h", "2h", "2h", "2h", "2h"};
     String[] thumbnail_id = {"http://goo.gl/gEgYUd", "http://goo.gl/gEgYUd", "http://goo.gl/gEgYUd", "http://goo.gl/gEgYUd", "http://goo.gl/gEgYUd", "http://goo.gl/gEgYUd", "http://goo.gl/gEgYUd", "http://goo.gl/gEgYUd"};
+
+
+    public static FragmentSaved newInstance() {
+        return new FragmentSaved();
+    }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
