@@ -10,7 +10,7 @@
     <color name="tile_color_1">#04b8c9</color>
     <color name="main_news_background">#F5F4F0</color>
     <color name="header_color">#62abfb</color>
-
+    <color name="tab_header_bg">#13151A</color>
     <!-- Screens background color-->
     <color name="bg_screen1">#fff</color>
     <color name="bg_screen2">#fff</color>
