@@ -50,6 +50,8 @@
     <string name="explore_tab">Explore</string>
     <string name="search_tab">Search</string>
     <string name="saved_tab">Saved</string>
+    <string name="search_title">Find topics of interest</string>
+    <string name="search_hint">Search for sources, topics ...</string>
 
 
 </resources>

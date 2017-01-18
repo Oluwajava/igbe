@@ -47,4 +47,7 @@
     <color name="defaultBarColor">#FFFFFF</color>
     <color name="tabInactiveColor">#222222</color>
     <color name="tabActiveColor">@color/colorAccent</color>
+
+    <!-- News title text color and divider color-->
+    <color name="newsDividerColor">#dad9d9</color>
 </resources>
