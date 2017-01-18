@@ -23,6 +23,12 @@ import java.util.ArrayList;
  */
 public class FragmentSearch extends Fragment {
 
+    /** Required empty constructor */
+    public FragmentSearch() {}
+
+    public static FragmentSearch newInstance() {
+        return new FragmentSearch();
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
