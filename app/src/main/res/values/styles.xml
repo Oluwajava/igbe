@@ -11,6 +11,7 @@
     <!-- Custom TextAppearance for bottom nav title -->
     <style name="TabTextAppearance" parent="AppTheme">
         <item name="android:textSize">12sp</item>
+
     </style>
 
     <style name="SearchItemAppearance" parent="AppTheme">

@@ -1,7 +1,9 @@
 package com.snews.pison.snews.fragments;
 
 import android.os.Bundle;
+import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
@@ -20,6 +22,8 @@ import butterknife.ButterKnife;
  */
 public class FragmentExplore extends Fragment {
 
+    TabLayout tabLayout;
+    ViewPager viewPager;
     /** Required empty constructor */
     public FragmentExplore() {}
 
@@ -33,6 +37,19 @@ public class FragmentExplore extends Fragment {
         // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.fragment_explore, container, false);
 
+        //initializing swipeview layouts
+        viewPager = (ViewPager) rootView.findViewById(R.id.pager);
+        tabLayout = (TabLayout) rootView.findViewById(R.id.view_pager);
+
+        
+
+        initializeToolbar(rootView);
+
+        return rootView;
+    }
+
+    private void initializeToolbar(View rootView) {
+
         // Setup the toolbar
         Toolbar toolbar = ButterKnife.findById(rootView, R.id.toolbar);
         TextView toolBarTitle = ButterKnife.findById(toolbar, R.id.toolbar_title);
@@ -41,7 +58,6 @@ public class FragmentExplore extends Fragment {
         activity.setSupportActionBar(toolbar);
         activity.getSupportActionBar().setDisplayShowTitleEnabled(false);
 
-        return rootView;
     }
 
 

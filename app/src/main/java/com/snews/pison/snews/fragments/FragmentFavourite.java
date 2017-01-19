@@ -51,22 +51,16 @@ public class FragmentFavourite extends Fragment {
         // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.fragment_favourite, container, false);
 
-        // Setup the toolbar
-        Toolbar toolbar = ButterKnife.findById(rootView, R.id.toolbar);
-        TextView toolBarTitle = ButterKnife.findById(toolbar, R.id.toolbar_title);
-        toolBarTitle.setText(R.string.favorites_tab);
-        AppCompatActivity activity = (AppCompatActivity) getActivity();
-        activity.setSupportActionBar(toolbar);
-        activity.getSupportActionBar().setDisplayShowTitleEnabled(false);
+        initializeToolbar(rootView);
 
         pref = new PrefManager(getActivity());
         recyclerView = (RecyclerView)rootView.findViewById(R.id.recycler_view);
 
-        initializeCard();
+        initializeCard(rootView);
         return rootView;
     }
 
-    private void initializeCard() {
+    private void initializeCard(View rootView) {
         // get list of favourites news sources from shared preference
         String[] fav = pref.getFavourites().split(" ");
         String[] name = new String[fav.length-1];
@@ -92,6 +86,18 @@ public class FragmentFavourite extends Fragment {
         recyclerView.setHasFixedSize(true);
         adapter = new SelectionAdapter(list, getActivity());
         recyclerView.setAdapter(adapter);
+    }
+
+    private void initializeToolbar(View rootView) {
+
+        // Setup the toolbar
+        Toolbar toolbar = ButterKnife.findById(rootView, R.id.toolbar);
+        TextView toolBarTitle = ButterKnife.findById(toolbar, R.id.toolbar_title);
+        toolBarTitle.setText(R.string.favorites_tab);
+        AppCompatActivity activity = (AppCompatActivity) getActivity();
+        activity.setSupportActionBar(toolbar);
+        activity.getSupportActionBar().setDisplayShowTitleEnabled(false);
+
     }
 
 }

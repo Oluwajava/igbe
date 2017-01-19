@@ -5,12 +5,13 @@
     <color name="colorAccent">#FF4081</color>
     <color name="lightGray">#EEEEEE</color>
     <color name="blue">#007AFF</color>
-    <color name="footerColor">#f5f5f5</color>
+    <color name="footerColor">#38393D</color>
     <color name="unselected">#7f7f7f</color>
     <color name="tile_color_1">#04b8c9</color>
     <color name="main_news_background">#F5F4F0</color>
     <color name="header_color">#62abfb</color>
-
+    <color name="inactive_dot">#000</color>
+    <color name="white">#fff</color>
     <!-- Screens background color-->
     <color name="bg_screen1">#fff</color>
     <color name="bg_screen2">#fff</color>
@@ -18,16 +19,16 @@
     <color name="bg_screen4">#fff</color>
 
     <!-- dots inactive colors -->
-    <color name="dot_dark_screen1">#d1395c</color>
-    <color name="dot_dark_screen2">#14a895</color>
-    <color name="dot_dark_screen3">#2278d4</color>
-    <color name="dot_dark_screen4">#a854d4</color>
+    <color name="dot_dark_screen1">@color/inactive_dot</color>
+    <color name="dot_dark_screen2">@color/inactive_dot</color>
+    <color name="dot_dark_screen3">@color/inactive_dot</color>
+    <color name="dot_dark_screen4">@color/inactive_dot</color>
 
     <!-- dots active colors -->
-    <color name="dot_light_screen1">#f98da5</color>
-    <color name="dot_light_screen2">#8cf9eb</color>
-    <color name="dot_light_screen3">#93c6fd</color>
-    <color name="dot_light_screen4">#e4b5fc</color>
+    <color name="dot_light_screen1">@color/lightGray</color>
+    <color name="dot_light_screen2">@color/lightGray</color>
+    <color name="dot_light_screen3">@color/lightGray</color>
+    <color name="dot_light_screen4">@color/lightGray</color>
 
     <array name="array_dot_active">
         <item>@color/dot_light_screen1</item>
@@ -45,9 +46,11 @@
 
     <!-- Bottom bar nav colors -->
     <color name="defaultBarColor">#FFFFFF</color>
-    <color name="tabInactiveColor">#222222</color>
-    <color name="tabActiveColor">@color/colorAccent</color>
+    <color name="tabInactiveColor">#b7b3b3</color>
+    <color name="tabActiveColor">#38CFF2</color>
+    <color name="tabActiveColor_2">@color/colorAccent</color>
 
     <!-- News title text color and divider color-->
     <color name="newsDividerColor">#dad9d9</color>
+
 </resources>

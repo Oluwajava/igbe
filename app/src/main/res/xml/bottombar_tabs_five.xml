@@ -7,7 +7,7 @@
         title="@string/for_you_tab"
         activeColor="@color/tabActiveColor"
         inactiveColor="@color/tabInactiveColor"
-        barColorWhenSelected="@color/defaultBarColor"/>
+        barColorWhenSelected="@color/footerColor"/>
 
     <!-- Favorites -->
     <tab
@@ -16,7 +16,7 @@
         title="@string/favorites_tab"
         activeColor="@color/tabActiveColor"
         inactiveColor="@color/tabInactiveColor"
-        barColorWhenSelected="@color/defaultBarColor"/>
+        barColorWhenSelected="@color/footerColor"/>
 
     <!-- Explore -->
     <tab
@@ -25,7 +25,7 @@
         title="@string/explore_tab"
         activeColor="@color/tabActiveColor"
         inactiveColor="@color/tabInactiveColor"
-        barColorWhenSelected="@color/defaultBarColor"/>
+        barColorWhenSelected="@color/footerColor"/>
 
     <!-- Search -->
     <tab
@@ -34,7 +34,7 @@
         title="@string/search_tab"
         activeColor="@color/tabActiveColor"
         inactiveColor="@color/tabInactiveColor"
-        barColorWhenSelected="@color/defaultBarColor"/>
+        barColorWhenSelected="@color/footerColor"/>
 
     <!-- Saved -->
     <tab
@@ -43,5 +43,5 @@
         title="@string/saved_tab"
         activeColor="@color/tabActiveColor"
         inactiveColor="@color/tabInactiveColor"
-        barColorWhenSelected="@color/defaultBarColor"/>
+        barColorWhenSelected="@color/footerColor"/>
 </tabs>

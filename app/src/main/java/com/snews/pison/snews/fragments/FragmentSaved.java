@@ -3,18 +3,23 @@ package com.snews.pison.snews.fragments;
 import android.content.res.AssetManager;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.snews.pison.snews.R;
 import com.snews.pison.snews.utils.News;
 import com.snews.pison.snews.utils.SavedNewsAdapter;
 
 import java.util.ArrayList;
+
+import butterknife.ButterKnife;
 
 
 public class FragmentSaved extends Fragment {
@@ -47,6 +52,7 @@ public class FragmentSaved extends Fragment {
         return new FragmentSaved();
     }
 
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -66,6 +72,8 @@ public class FragmentSaved extends Fragment {
             list.add(news);
         }
 
+        initializeToolbar(rootView);
+
         recyclerView = (RecyclerView)rootView.findViewById(R.id.recycler_view);
         layoutManager = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(layoutManager);
@@ -77,6 +85,19 @@ public class FragmentSaved extends Fragment {
 
         return rootView;
     }
+
+    private void initializeToolbar(View rootView) {
+
+        // Setup the toolbar
+        Toolbar toolbar = ButterKnife.findById(rootView, R.id.toolbar);
+        TextView toolBarTitle = ButterKnife.findById(toolbar, R.id.toolbar_title);
+        toolBarTitle.setText(R.string.saved_tab);
+        AppCompatActivity activity = (AppCompatActivity) getActivity();
+        activity.setSupportActionBar(toolbar);
+        activity.getSupportActionBar().setDisplayShowTitleEnabled(false);
+
+    }
+
 
 
 }

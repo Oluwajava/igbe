@@ -22,6 +22,9 @@
         app:bb_titleTypeFace="fonts/Roboto-Regular.ttf"
         app:bb_inActiveTabColor="@color/tabInactiveColor"
         app:bb_titleTextAppearance="@style/TabTextAppearance"
-        app:bb_tabXmlResource="@xml/bottombar_tabs_five" />
+        app:bb_tabXmlResource="@xml/bottombar_tabs_five"
+        android:alpha="0.9"
+
+        />
 
 </RelativeLayout>

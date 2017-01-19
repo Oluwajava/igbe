@@ -8,6 +8,8 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 
+import com.snews.pison.snews.R;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -48,6 +50,7 @@ public class FragmentSwitcher {
         mCurrentFragmentTag = fragName;
         if (fragment != null) {
             mFragmentManager.beginTransaction()
+                    .setCustomAnimations(R.anim.fade_in,R.anim.fade_out)
                     .replace(mFragmentContainerId, fragment, fragment.getClass().getSimpleName())
                     .commit();
         }

@@ -1,25 +1,28 @@
 package com.snews.pison.snews.fragments;
 
-import android.content.res.AssetManager;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.snews.pison.snews.R;
-import com.snews.pison.snews.utils.FontFactory;
 import com.snews.pison.snews.utils.ForYouAdapter;
 import com.snews.pison.snews.utils.News;
-import com.snews.pison.snews.utils.SavedNewsAdapter;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+
+import butterknife.ButterKnife;
 
 
 public class FragmentForYou extends Fragment {
@@ -29,7 +32,7 @@ public class FragmentForYou extends Fragment {
     RecyclerView.LayoutManager layoutManager;
     ArrayList<News> list = new ArrayList<>();
     Button btnContinue;
-    String[] title = {"Manchester City rival Manchester United to get signature of Lionel Messi for 200million pounds",
+    String[] title = {"Lionel Messi wants Ozil at Barcelona",
             "Harzard will be greater than Ronaldo says Conte",
             "C. Ronaldo set to return to Manchester United",
             "Lionel Messi wins Ballon d'Or again",
@@ -40,7 +43,7 @@ public class FragmentForYou extends Fragment {
             "Harzard will be greater than Ronaldo says Conte",
             "C. Ronaldo set to return to Manchester United"
             };
-    String[] content = {"An enthusiast recent graduate with B.sc in political science (public administration) and international relations. Excellent research,",
+    String[] content = {"Lionel Messi as said in an exclusive interview he would love if Ozil join Barcelona...",
             "An enthusiast recent graduate with B.sc in political science (public administration) and international relations. Excellent research,",
             "An enthusiast recent graduate with B.sc in political science (public administration) and international relations. Excellent research,",
             "An enthusiast recent graduate with B.sc in political science (public administration) and international relations. Excellent research,",
@@ -63,6 +66,18 @@ public class FragmentForYou extends Fragment {
                                 "http://static.guim.co.uk/sys-images/Football/Pix/pictures/2015/4/16/1429206099512/Eden-Hazard-009.jpg",
                                 "https://blog-blogmediainc.netdna-ssl.com/upload/SportsBlogcom/2355290/0393288001463260456_filepicker.jpg"};
 
+    String[] source_id = { "http://logok.org/wp-content/uploads/2015/02/ESPN-logo-wordmark.png",
+            "http://logok.org/wp-content/uploads/2015/02/ESPN-logo-wordmark.png",
+            "http://logok.org/wp-content/uploads/2015/02/ESPN-logo-wordmark.png",
+            "http://logok.org/wp-content/uploads/2015/02/ESPN-logo-wordmark.png",
+            "http://logok.org/wp-content/uploads/2015/02/ESPN-logo-wordmark.png",
+            "http://logok.org/wp-content/uploads/2015/02/ESPN-logo-wordmark.png",
+            "http://logok.org/wp-content/uploads/2015/02/ESPN-logo-wordmark.png",
+            "http://logok.org/wp-content/uploads/2015/02/ESPN-logo-wordmark.png",
+            "http://logok.org/wp-content/uploads/2015/02/ESPN-logo-wordmark.png",
+            "http://logok.org/wp-content/uploads/2015/02/ESPN-logo-wordmark.png",
+    };
+
     /** Required empty constructor */
     public FragmentForYou() {}
 
@@ -78,12 +93,16 @@ public class FragmentForYou extends Fragment {
 
         int count = 0;
 
+        //calls method to initialize toolbar
+        initializeToolbar(rootView);
+
         //loops through the array and add it to an ArrayList
         for(String image: thumbnail_id){
             News news = new News.Builder(image, title[count])
                     .content(content[count])
                     .source(source[count])
                     .time(time[count])
+                    .sourceId(source_id[count])
                     .build();
 
             count++;
@@ -118,5 +137,23 @@ public class FragmentForYou extends Fragment {
         return rootView;
     }
 
+    private void initializeToolbar(View rootView) {
 
+        // Setup the toolbar
+        Toolbar toolbar = ButterKnife.findById(rootView, R.id.toolbar);
+        TextView toolBarTitle = ButterKnife.findById(toolbar, R.id.toolbar_title);
+        toolBarTitle.setText(Html.fromHtml(getToolbarText()));
+        AppCompatActivity activity = (AppCompatActivity) getActivity();
+        activity.setSupportActionBar(toolbar);
+        activity.getSupportActionBar().setDisplayShowTitleEnabled(false);
+
+    }
+
+    private String getToolbarText() {
+        Date now = new Date();
+        SimpleDateFormat dateFormat = new SimpleDateFormat("EEEE");
+        Calendar cal = Calendar.getInstance();
+        String date = "<b>"+dateFormat.format(now)+" "+cal.get(Calendar.DAY_OF_MONTH)+",</b> "+cal.get(Calendar.YEAR);
+        return date;
+    }
 }
