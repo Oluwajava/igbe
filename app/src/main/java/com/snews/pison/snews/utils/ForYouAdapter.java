@@ -67,8 +67,8 @@ public class ForYouAdapter  extends RecyclerView.Adapter<ForYouAdapter.ForYouVie
         holder.title.setText(newsId.getTitle());
         if (position == 0)
             holder.content.setText(newsId.getContent());
-        holder.source.setText(newsId.getSource());
-        holder.time.setText(newsId.getTime());
+
+        Glide.with(ctx).load(newsId.getSourceId()).centerCrop().into(holder.sourceImage);
 //        holder.thumbnailImage.setBackgroundResource(newsId.getThumbnailId());
 
 
@@ -94,7 +94,7 @@ public class ForYouAdapter  extends RecyclerView.Adapter<ForYouAdapter.ForYouVie
             content = (TextView)view.findViewById(R.id.content);
             relView = (RelativeLayout)view.findViewById(R.id.relView);
             cardView = (CardView)view.findViewById(R.id.card_view);
-
+            sourceImage = (ImageView)view.findViewById(R.id.source_icon);
 
         }
     }

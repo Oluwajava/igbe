@@ -73,7 +73,7 @@ public class Selection extends AppCompatActivity {
 
         recyclerView = (RecyclerView)findViewById(R.id.recycler_view);
         //the value passed to the layout manager determines the size of each card
-        recyclerView.setLayoutManager(new GridAutofitLayoutManager(this, 240));
+        recyclerView.setLayoutManager(new GridAutofitLayoutManager(this, 260));
         recyclerView.setHasFixedSize(true);
         adapter = new SelectionAdapter(list, this);
         recyclerView.setAdapter(adapter);

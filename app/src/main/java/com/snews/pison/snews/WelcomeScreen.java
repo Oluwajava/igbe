@@ -43,7 +43,7 @@ public class WelcomeScreen extends AppCompatActivity {
 
         //setting default font
         CalligraphyConfig.initDefault(new CalligraphyConfig.Builder()
-                .setDefaultFontPath("fonts/timeburnernormal.ttf")
+                .setDefaultFontPath("fonts/opensans.ttf")
                 .setFontAttrId(R.attr.fontPath)
                 .build()
         );
@@ -81,9 +81,9 @@ public class WelcomeScreen extends AppCompatActivity {
 
         // colors for each button
         btnColor = new int[]{
-                R.color.dot_dark_screen1,
-                R.color.dot_dark_screen2,
-                R.color.dot_dark_screen3
+                R.color.white,
+                R.color.white,
+                R.color.white
         };
 
         // adding bottom dots
@@ -132,8 +132,8 @@ public class WelcomeScreen extends AppCompatActivity {
             dots[i].setTextSize(35);
             dots[i].setTextColor(colorsInactive[currentPage]);
             dotsLayout.addView(dots[i]);
-            btnNext.setTextColor(btnColor[i]);
-            btnSkip.setTextColor(btnColor[i]);
+            btnNext.setTextColor(getResources().getColor(R.color.white));
+            btnSkip.setTextColor(getResources().getColor(R.color.white));
         }
 
         if (dots.length > 0)
@@ -166,12 +166,14 @@ public class WelcomeScreen extends AppCompatActivity {
             // changing the next button text 'NEXT' / 'GOT IT'
             if (position == layouts.length - 1) {
                 // last page. make button text to GOT IT
+                btnNext.setVisibility(View.VISIBLE);
                 btnNext.setText(getString(R.string.start));
                 btnSkip.setVisibility(View.GONE);
             } else {
                 // still pages are left
                 btnNext.setText(getString(R.string.next));
                 btnSkip.setVisibility(View.VISIBLE);
+                btnNext.setVisibility(View.GONE);
             }
         }
 

@@ -44,7 +44,7 @@ public class SplashScreen  extends AppCompatActivity {
 
         //setting default font
         CalligraphyConfig.initDefault(new CalligraphyConfig.Builder()
-                .setDefaultFontPath("fonts/ssregular.ttf")
+                .setDefaultFontPath("fonts/opensans.ttf")
                 .setFontAttrId(R.attr.fontPath)
                 .build()
         );
@@ -81,11 +81,12 @@ public class SplashScreen  extends AppCompatActivity {
               };
 
         // colors for each button
-        btnColor = new int[]{
-                R.color.dot_dark_screen1,
-                R.color.dot_dark_screen2,
-                R.color.dot_dark_screen3
+        /**btnColor = new int[]{
+                R.color.white,
+                R.color.white,
+                R.color.white
         };
+         **/
 
         // adding bottom dots
         addBottomDots(0);
@@ -138,9 +139,10 @@ public class SplashScreen  extends AppCompatActivity {
             dots[i].setTextSize(35);
             dots[i].setTextColor(colorsInactive[currentPage]);
             dotsLayout.addView(dots[i]);
-            btnNext.setTextColor(btnColor[i]);
-            btnSkip.setTextColor(btnColor[i]);
+            //btnNext.setTextColor(btnColor[i]);
+            //btnSkip.setTextColor(btnColor[i]);
         }
+
 
         if (dots.length > 0)
             dots[currentPage].setTextColor(colorsActive[currentPage]);
@@ -174,6 +176,7 @@ public class SplashScreen  extends AppCompatActivity {
                 // last page. make button text to GOT IT
                 btnNext.setText(getString(R.string.start));
                 btnSkip.setVisibility(View.GONE);
+
             } else {
                 // still pages are left
                 btnNext.setText(getString(R.string.next));

@@ -15,7 +15,7 @@ public class SnewsApplication extends Application {
         super.onCreate();
 
         CalligraphyConfig.initDefault(new CalligraphyConfig.Builder()
-                .setDefaultFontPath("fonts/Roboto-Regular.ttf")
+                .setDefaultFontPath("fonts/opensans.ttf")
                 .setFontAttrId(R.attr.fontPath)
                 .build()
         );
