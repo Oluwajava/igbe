@@ -24,8 +24,11 @@ import java.util.Date;
 
 import butterknife.ButterKnife;
 
+/**
+ * Created by Mayokun on 1/18/2017.
+ */
 
-public class FragmentForYou extends Fragment {
+public class NewsPage extends Fragment {
 
     RecyclerView recyclerView;
     RecyclerView.Adapter adapter;
@@ -42,7 +45,7 @@ public class FragmentForYou extends Fragment {
             "Lionel Messi wins Ballon d'Or again",
             "Harzard will be greater than Ronaldo says Conte",
             "C. Ronaldo set to return to Manchester United"
-            };
+    };
     String[] content = {"Lionel Messi as said in an exclusive interview he would love if Ozil join Barcelona...",
             "An enthusiast recent graduate with B.sc in political science (public administration) and international relations. Excellent research,",
             "An enthusiast recent graduate with B.sc in political science (public administration) and international relations. Excellent research,",
@@ -56,15 +59,15 @@ public class FragmentForYou extends Fragment {
     String[] source = {"ESPN", "Goal", "SkySport", "ESPN", "SkySport", "ESPN", "SkySport", "Goal", "SkySport", "ESPN"};
     String[] time = {"2h", "2h", "2h", "2h", "2h", "2h", "2h", "2h", "2h", "2h"};
     String[] thumbnail_id = { "https://metrouk2.files.wordpress.com/2016/10/617269818.jpg",
-                                "http://static.guim.co.uk/sys-images/Football/Pix/pictures/2015/4/16/1429206099512/Eden-Hazard-009.jpg",
-                                "https://blog-blogmediainc.netdna-ssl.com/upload/SportsBlogcom/2355290/0393288001463260456_filepicker.jpg",
-                                "http://a.fssta.com/content/dam/fsdigital/fscom/soccer/images/2016/08/23/lionel-messi.vadapt.980.high.63.png",
-                                "http://e1.365dm.com/15/11/16-9/20/jose-mourinho-chelsea-manager_3380880.jpg?20151124201615",
-                                "http://cdn.images.express.co.uk/img/dynamic/67/590x/Antonio-Conte-639015.jpg",
-                                "http://images.performgroup.com/di/library/goal_es/37/5e/neymar-barcelona-espanyol-liga-bbva_18wwkuz3kzuj21s7cms5h76qwh.jpg?t=-1853456236",
-                                "https://metrouk2.files.wordpress.com/2016/10/617269818.jpg",
-                                "http://static.guim.co.uk/sys-images/Football/Pix/pictures/2015/4/16/1429206099512/Eden-Hazard-009.jpg",
-                                "https://blog-blogmediainc.netdna-ssl.com/upload/SportsBlogcom/2355290/0393288001463260456_filepicker.jpg"};
+            "http://static.guim.co.uk/sys-images/Football/Pix/pictures/2015/4/16/1429206099512/Eden-Hazard-009.jpg",
+            "https://blog-blogmediainc.netdna-ssl.com/upload/SportsBlogcom/2355290/0393288001463260456_filepicker.jpg",
+            "http://a.fssta.com/content/dam/fsdigital/fscom/soccer/images/2016/08/23/lionel-messi.vadapt.980.high.63.png",
+            "http://e1.365dm.com/15/11/16-9/20/jose-mourinho-chelsea-manager_3380880.jpg?20151124201615",
+            "http://cdn.images.express.co.uk/img/dynamic/67/590x/Antonio-Conte-639015.jpg",
+            "http://images.performgroup.com/di/library/goal_es/37/5e/neymar-barcelona-espanyol-liga-bbva_18wwkuz3kzuj21s7cms5h76qwh.jpg?t=-1853456236",
+            "https://metrouk2.files.wordpress.com/2016/10/617269818.jpg",
+            "http://static.guim.co.uk/sys-images/Football/Pix/pictures/2015/4/16/1429206099512/Eden-Hazard-009.jpg",
+            "https://blog-blogmediainc.netdna-ssl.com/upload/SportsBlogcom/2355290/0393288001463260456_filepicker.jpg"};
 
     String[] source_id = { "http://logok.org/wp-content/uploads/2015/02/ESPN-logo-wordmark.png",
             "http://logok.org/wp-content/uploads/2015/02/ESPN-logo-wordmark.png",
@@ -78,29 +81,14 @@ public class FragmentForYou extends Fragment {
             "http://logok.org/wp-content/uploads/2015/02/ESPN-logo-wordmark.png",
     };
 
-    /** Required empty constructor */
-    public FragmentForYou() {}
-
-    public static FragmentForYou newInstance() {
-        return new FragmentForYou();
-    }
-
-    @Override
-    public void onPause() {
-        super.onPause();
-        list.clear();
-    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View rootView = inflater.inflate(R.layout.fragment_for_you, container, false);
+        View rootView = inflater.inflate(R.layout.news_page, container, false);
 
         int count = 0;
-
-        //calls method to initialize toolbar
-        initializeToolbar(rootView);
 
         //loops through the array and add it to an ArrayList
         for(String image: thumbnail_id){
@@ -143,23 +131,4 @@ public class FragmentForYou extends Fragment {
         return rootView;
     }
 
-    private void initializeToolbar(View rootView) {
-
-        // Setup the toolbar
-        Toolbar toolbar = ButterKnife.findById(rootView, R.id.toolbar);
-        TextView toolBarTitle = ButterKnife.findById(toolbar, R.id.toolbar_title);
-        toolBarTitle.setText(Html.fromHtml(getToolbarText()));
-        AppCompatActivity activity = (AppCompatActivity) getActivity();
-        activity.setSupportActionBar(toolbar);
-        activity.getSupportActionBar().setDisplayShowTitleEnabled(false);
-
-    }
-
-    private String getToolbarText() {
-        Date now = new Date();
-        SimpleDateFormat dateFormat = new SimpleDateFormat("EEEE");
-        Calendar cal = Calendar.getInstance();
-        String date = "<b>"+dateFormat.format(now)+" "+cal.get(Calendar.DAY_OF_MONTH)+",</b> "+cal.get(Calendar.YEAR);
-        return date;
-    }
 }

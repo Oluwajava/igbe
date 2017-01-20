@@ -11,6 +11,7 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -29,7 +30,7 @@ public class FragmentExplore extends Fragment {
 
     TabLayout tabLayout;
     ViewPager viewPager;
-
+    private View view;
     /** Required empty constructor */
     public FragmentExplore() {}
 
@@ -38,27 +39,29 @@ public class FragmentExplore extends Fragment {
     }
 
     @Override
+    public void onResume() {
+        super.onResume();
+        initializeTabs(view);
+        Log.d("Test", "Resumption");
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        Log.d("Test", "Paused");
+    }
+
+    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.fragment_explore, container, false);
+        this.view = rootView;
 
-        // Setup the toolbar
-        Toolbar toolbar = ButterKnife.findById(rootView, R.id.toolbar);
-        TextView toolBarTitle = ButterKnife.findById(toolbar, R.id.toolbar_title);
+        initilizeToolbars(rootView);
 
-        // Swipe tab initialization
-        tabLayout = (TabLayout) rootView.findViewById(R.id.tabLayout);
-        viewPager = (ViewPager) rootView.findViewById(R.id.pager);
+        initializeTabs(rootView);
 
-        toolBarTitle.setText(R.string.explore_tab);
-        AppCompatActivity activity = (AppCompatActivity) getActivity();
-        activity.setSupportActionBar(toolbar);
-        activity.getSupportActionBar().setDisplayShowTitleEnabled(false);
-
-        // Setup swipe view
-        viewPager.setAdapter(new FragmentExplore.CustomTabAdapter(getActivity().getSupportFragmentManager()));
-        tabLayout.setupWithViewPager(viewPager);
 
         tabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
@@ -96,11 +99,38 @@ public class FragmentExplore extends Fragment {
         };
 
         return rootView;
+
+
+    }
+
+    private void initializeTabs(View view) {
+        // Swipe tab initialization
+        tabLayout = (TabLayout) view.findViewById(R.id.tabLayout);
+        viewPager = (ViewPager) view.findViewById(R.id.pager);
+
+
+
+        // Setup swipe view
+        viewPager.setAdapter(new FragmentExplore.CustomTabAdapter(getActivity().getSupportFragmentManager()));
+        tabLayout.setupWithViewPager(viewPager);
+    }
+
+    private void initilizeToolbars(View view) {
+
+        // Setup the toolbar
+        Toolbar toolbar = ButterKnife.findById(view, R.id.toolbar);
+        TextView toolBarTitle = ButterKnife.findById(toolbar, R.id.toolbar_title);
+
+        toolBarTitle.setText(R.string.explore_tab);
+        AppCompatActivity activity = (AppCompatActivity) getActivity();
+        activity.setSupportActionBar(toolbar);
+        activity.getSupportActionBar().setDisplayShowTitleEnabled(false);
+
     }
 
     private class CustomTabAdapter extends FragmentStatePagerAdapter {
 
-        String[] headers = {"TRENDING", "WORLD", "POLITICS"};
+        String[] headers = {"TRENDING", "WORLD", "POLITICS", "TRENDING", "WORLD", "POLITICS", "TRENDING", "WORLD", "POLITICS"};
         public CustomTabAdapter(FragmentManager fragmentManager) {
             super(fragmentManager);
         }
@@ -112,13 +142,16 @@ public class FragmentExplore extends Fragment {
 
             switch (position) {
                 case 0:
-                    frag = new FragmentForYou();
+                    frag = new NewsPage();
                     break;
                 case 1:
-                    frag = new FragmentForYou();
+                    frag = new NewsPage();
                     break;
                 case 2:
-                    frag = new FragmentForYou();
+                    frag = new NewsPage();
+                    break;
+                default:
+                    frag = new NewsPage();
                     break;
             }
             return frag;
@@ -133,6 +166,7 @@ public class FragmentExplore extends Fragment {
         public CharSequence getPageTitle(int position) {
             return headers[position];
         }
+
     }
 
 }

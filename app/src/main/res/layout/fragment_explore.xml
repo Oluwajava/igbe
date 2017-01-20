@@ -4,6 +4,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
+    android:background="#fff"
     tools:context="com.snews.pison.snews.fragments.FragmentExplore">
 
     <!-- Custom Toolbar -->
@@ -26,11 +27,12 @@
             android:layout_height="wrap_content"
             app:tabMaxWidth="0dp"
             app:tabGravity="fill"
-            app:tabMode="fixed"
+            app:tabMode="scrollable"
             android:background="@color/tab_header_bg"
-            app:tabTextColor="#fff"
+            app:tabTextColor="@color/unselected_tab"
             app:tabSelectedTextColor="#fff"
-            app:tabIndicatorColor="@color/tab_header_bg"
+            app:tabIndicatorColor="@color/tabActiveColor"
+
             >
 
 
