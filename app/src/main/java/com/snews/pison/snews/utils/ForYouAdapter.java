@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.snews.pison.snews.R;
@@ -80,7 +81,7 @@ public class ForYouAdapter  extends RecyclerView.Adapter<ForYouAdapter.ForYouVie
         return news.size();
     }
 
-    public static class ForYouViewHolder extends RecyclerView.ViewHolder{
+    public static class ForYouViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         RelativeLayout relView;
         CardView cardView;
         ImageView thumbnailImage, sourceImage;
@@ -95,6 +96,17 @@ public class ForYouAdapter  extends RecyclerView.Adapter<ForYouAdapter.ForYouVie
             relView = (RelativeLayout)view.findViewById(R.id.relView);
             cardView = (CardView)view.findViewById(R.id.card_view);
             sourceImage = (ImageView)view.findViewById(R.id.source_icon);
+
+            view.setOnClickListener(this);
+
+        }
+
+        @Override
+        public void onClick(View view) {
+
+            int position = view.getId();
+
+
 
         }
     }

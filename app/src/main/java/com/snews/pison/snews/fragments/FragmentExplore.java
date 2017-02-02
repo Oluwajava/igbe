@@ -18,6 +18,11 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.snews.pison.snews.R;
+import com.snews.pison.snews.utils.TabFragmentPage;
+import com.snews.pison.snews.utils.TabbedFragmentPagerAdapter;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.ButterKnife;
 
@@ -31,6 +36,8 @@ public class FragmentExplore extends Fragment {
     TabLayout tabLayout;
     ViewPager viewPager;
     private View view;
+    private TabbedFragmentPagerAdapter pagerAdapter;
+    protected List<TabFragmentPage<? extends Fragment>> tabFragmentPages;
     /** Required empty constructor */
     public FragmentExplore() {}
 
@@ -41,6 +48,7 @@ public class FragmentExplore extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
+        tabFragmentPages.clear();
         initializeTabs(view);
         Log.d("Test", "Resumption");
     }
@@ -48,6 +56,7 @@ public class FragmentExplore extends Fragment {
     @Override
     public void onPause() {
         super.onPause();
+        tabFragmentPages.clear();
         Log.d("Test", "Paused");
     }
 
@@ -63,41 +72,6 @@ public class FragmentExplore extends Fragment {
         initializeTabs(rootView);
 
 
-        tabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
-            @Override
-            public void onTabSelected(TabLayout.Tab tab) {
-                viewPager.setCurrentItem(tab.getPosition());
-            }
-
-            @Override
-            public void onTabUnselected(TabLayout.Tab tab) {
-//                viewPager.setCurrentItem(tab.getPosition());
-            }
-
-            @Override
-            public void onTabReselected(TabLayout.Tab tab) {
-//                viewPager.setCurrentItem(tab.getPosition());
-            }
-        });
-
-        ActionBar.TabListener tabListener = new ActionBar.TabListener() {
-
-            @Override
-            public void onTabSelected(ActionBar.Tab tab, FragmentTransaction ft) {
-                viewPager.setCurrentItem(tab.getPosition());
-            }
-
-            @Override
-            public void onTabUnselected(ActionBar.Tab tab, FragmentTransaction ft) {
-
-            }
-
-            @Override
-            public void onTabReselected(ActionBar.Tab tab, FragmentTransaction ft) {
-
-            }
-        };
-
         return rootView;
 
 
@@ -108,11 +82,19 @@ public class FragmentExplore extends Fragment {
         tabLayout = (TabLayout) view.findViewById(R.id.tabLayout);
         viewPager = (ViewPager) view.findViewById(R.id.pager);
 
+        tabFragmentPages = new ArrayList<>();
+        tabFragmentPages.add(new TabFragmentPage<NewsPage>(R.string.trending, NewsPage.class));
+        tabFragmentPages.add(new TabFragmentPage<NewsPage>(R.string.world, NewsPage.class));
+        tabFragmentPages.add(new TabFragmentPage<NewsPage>(R.string.politics, NewsPage.class));
+        tabFragmentPages.add(new TabFragmentPage<NewsPage>(R.string.sports, NewsPage.class));
+        tabFragmentPages.add(new TabFragmentPage<NewsPage>(R.string.EUROPE, NewsPage.class));
+        tabFragmentPages.add(new TabFragmentPage<NewsPage>(R.string.africa, NewsPage.class));
 
+        pagerAdapter = new TabbedFragmentPagerAdapter(getChildFragmentManager(), getContext(), tabFragmentPages);
 
-        // Setup swipe view
-        viewPager.setAdapter(new FragmentExplore.CustomTabAdapter(getActivity().getSupportFragmentManager()));
+        viewPager.setAdapter(pagerAdapter);
         tabLayout.setupWithViewPager(viewPager);
+
     }
 
     private void initilizeToolbars(View view) {
@@ -120,52 +102,13 @@ public class FragmentExplore extends Fragment {
         // Setup the toolbar
         Toolbar toolbar = ButterKnife.findById(view, R.id.toolbar);
         TextView toolBarTitle = ButterKnife.findById(toolbar, R.id.toolbar_title);
+        TextView toolBarSubTitle = ButterKnife.findById(toolbar, R.id.sub_title);
 
         toolBarTitle.setText(R.string.explore_tab);
+        toolBarSubTitle.setText(R.string.explore_sub_title);
         AppCompatActivity activity = (AppCompatActivity) getActivity();
         activity.setSupportActionBar(toolbar);
         activity.getSupportActionBar().setDisplayShowTitleEnabled(false);
-
-    }
-
-    private class CustomTabAdapter extends FragmentStatePagerAdapter {
-
-        String[] headers = {"TRENDING", "WORLD", "POLITICS", "TRENDING", "WORLD", "POLITICS", "TRENDING", "WORLD", "POLITICS"};
-        public CustomTabAdapter(FragmentManager fragmentManager) {
-            super(fragmentManager);
-        }
-
-        @Override
-        public Fragment getItem(int position) {
-
-            Fragment frag = null;
-
-            switch (position) {
-                case 0:
-                    frag = new NewsPage();
-                    break;
-                case 1:
-                    frag = new NewsPage();
-                    break;
-                case 2:
-                    frag = new NewsPage();
-                    break;
-                default:
-                    frag = new NewsPage();
-                    break;
-            }
-            return frag;
-        }
-
-        @Override
-        public int getCount() {
-            return headers.length;
-        }
-
-        @Override
-        public CharSequence getPageTitle(int position) {
-            return headers[position];
-        }
 
     }
 

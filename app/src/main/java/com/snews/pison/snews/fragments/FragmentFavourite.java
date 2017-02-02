@@ -68,30 +68,30 @@ public class FragmentFavourite extends Fragment {
 
     private void initializeCard(View rootView) {
         // get list of favourites news sources from shared preference
-        String[] fav = pref.getFavourites().split(" ");
-        String[] name = new String[fav.length-1];
-        int[] image = new int[fav.length-1];
-
-        for(int i = 0; i < fav.length-1; i++) {
-            name[i] = NewsContent.getName(Integer.parseInt(fav[i+1]));
-            image[i] = NewsContent.getImageId(Integer.parseInt(fav[i+1]));
-
-        }
-
-        int count = 0;
-
-        //loops through the array and add it to an ArrayList
-        for(String Name: name){
-            SelectionItem selectionItem = new SelectionItem(image[count], Name);
-            count++;
-            list.add(selectionItem);
-        }
-
-        //the value passed to the layout manager determines the size of each card
-        recyclerView.setLayoutManager(new GridAutofitLayoutManager(getActivity(), 240));
-        recyclerView.setHasFixedSize(true);
-        adapter = new SelectionAdapter(list, getActivity());
-        recyclerView.setAdapter(adapter);
+//        String[] fav = pref.getFavourites().split(" ");
+//        String[] name = new String[fav.length-1];
+//        int[] image = new int[fav.length-1];
+//
+//        for(int i = 0; i < fav.length-1; i++) {
+//            name[i] = NewsContent.getName(Integer.parseInt(fav[i+1]));
+//            image[i] = NewsContent.getImageId(Integer.parseInt(fav[i+1]));
+//
+//        }
+//
+//        int count = 0;
+//
+//        //loops through the array and add it to an ArrayList
+//        for(String Name: name){
+//            SelectionItem selectionItem = new SelectionItem(image[count], Name, );
+//            count++;
+//            list.add(selectionItem);
+//        }
+//
+//        //the value passed to the layout manager determines the size of each card
+//        recyclerView.setLayoutManager(new GridAutofitLayoutManager(getActivity(), 240));
+//        recyclerView.setHasFixedSize(true);
+//        adapter = new SelectionAdapter(list, getActivity());
+//        recyclerView.setAdapter(adapter);
     }
 
     private void initializeToolbar(View rootView) {

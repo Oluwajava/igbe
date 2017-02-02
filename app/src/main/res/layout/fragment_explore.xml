@@ -32,7 +32,6 @@
             app:tabTextColor="@color/unselected_tab"
             app:tabSelectedTextColor="#fff"
             app:tabIndicatorColor="@color/tabActiveColor"
-
             >
 
 
@@ -42,7 +41,8 @@
             android:id="@+id/pager"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/tab_layout">
+            android:layout_below="@+id/tab_layout"
+            android:layout_marginBottom="?attr/actionBarSize">
 
         </android.support.v4.view.ViewPager>
 

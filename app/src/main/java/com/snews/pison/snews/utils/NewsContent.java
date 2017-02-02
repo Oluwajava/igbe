@@ -9,23 +9,36 @@ import java.util.ArrayList;
  */
 public class NewsContent {
 
-    private static int[] image_id = {R.drawable.icon_adventure, R.drawable.icon_atlantic, R.drawable.icon_bloomberg, R.drawable.icon_cnn,
-            R.drawable.icon_entertainment, R.drawable.icon_espn, R.drawable.icon_food, R.drawable.icon_hiking,
-            R.drawable.icon_news, R.drawable.icon_photo, R.drawable.icon_quartz, R.drawable.icon_top,
-            R.drawable.icon_adventure, R.drawable.icon_atlantic, R.drawable.icon_bloomberg, R.drawable.icon_cnn,
-            R.drawable.icon_entertainment, R.drawable.icon_espn, R.drawable.icon_food, R.drawable.icon_hiking,
-            R.drawable.icon_news, R.drawable.icon_photo, R.drawable.icon_quartz, R.drawable.icon_top,
-            R.drawable.icon_adventure, R.drawable.icon_atlantic, R.drawable.icon_bloomberg, R.drawable.icon_cnn,
-            R.drawable.icon_entertainment, R.drawable.icon_espn, R.drawable.icon_food, R.drawable.icon_hiking,
-            R.drawable.icon_news, R.drawable.icon_photo, R.drawable.icon_quartz, R.drawable.icon_top};
+    private static int[] image_id = {R.drawable.goal, R.drawable.espn, R.drawable.skynews, R.drawable.aj,
+            R.drawable.cnn, R.drawable.nyt, R.drawable.bbc, R.drawable.nbc,
+            R.drawable.cnn, R.drawable.nyt, R.drawable.bbc, R.drawable.nbc,
+            R.drawable.cnn, R.drawable.nyt, R.drawable.bbc, R.drawable.nbc,
+            R.drawable.cnn, R.drawable.nyt, R.drawable.bbc, R.drawable.nbc,
+            R.drawable.cnn, R.drawable.nyt, R.drawable.bbc, R.drawable.nbc,
+            R.drawable.cnn, R.drawable.nyt, R.drawable.bbc, R.drawable.nbc,
+            R.drawable.cnn, R.drawable.nyt, R.drawable.bbc, R.drawable.nbc,
+            R.drawable.cnn, R.drawable.nyt, R.drawable.bbc, R.drawable.nbc};
 
-    private static String[] name = {"Adventure", "Atlantic", "Bloomberg", "CNN", "Entertainment", "ESPN", "Food", "Hiking",
-            "News", "Photo", "Quartz", "Top",
-            "Adventure", "Atlantic", "Bloomberg", "CNN", "Entertainment", "ESPN", "Food", "Hiking",
-            "News", "Photo", "Quartz", "Top",
-            "Adventure", "Atlantic", "Bloomberg", "CNN", "Entertainment", "ESPN", "Food", "Hiking",
-            "News", "Photo", "Quartz", "Top"};
+    private static String[] name = {"Goal", "ESPN", "Sky News", "Al jazeera",
+            "Cable News Network", "The New York Times", "BBC News", "NBC News",
+            "Goal", "ESPN", "Sky News", "Al jazeera",
+            "Cable News Network", "The New York Times", "BBC News", "NBC News",
+            "Goal", "ESPN", "Sky News", "Al jazeera",
+            "Cable News Network", "The New York Times", "BBC News", "NBC News",
+            "Goal", "ESPN", "Sky News", "Al jazeera",
+            "Cable News Network", "The New York Times", "BBC News", "NBC News",
+            "Goal", "ESPN", "Sky News", "Al jazeera"
+            };
 
+    private static int[] background_id = {R.drawable.a, R.drawable.aa, R.drawable.aaa, R.drawable.aaaa,
+            R.drawable.aaaaa, R.drawable.b, R.drawable.bb, R.drawable.bbb,
+            R.drawable.bbbb, R.drawable.bbbbb, R.drawable.c, R.drawable.cc,
+            R.drawable.ccc, R.drawable.cccc, R.drawable.ccccc, R.drawable.d,
+            R.drawable.dd, R.drawable.a, R.drawable.aa, R.drawable.aaa,
+            R.drawable.bbb, R.drawable.b, R.drawable.c, R.drawable.aa,
+            R.drawable.cc, R.drawable.d, R.drawable.d, R.drawable.nbc,
+            R.drawable.aaaa, R.drawable.aa, R.drawable.bbbbb, R.drawable.aaaaa,
+            R.drawable.aaa, R.drawable.ccccc, R.drawable.cccc, R.drawable.bbbbb};
     private static ArrayList<String> favouritesSources;
 
     public static int[] getImageId() { return image_id; }
@@ -41,4 +54,12 @@ public class NewsContent {
     }
 
     public static ArrayList<String> getFavouritesSources() { return favouritesSources; }
+
+    public static int[] getBackgroundId() {
+        return background_id;
+    }
+
+    public static void setBackgroundId(int[] background_id) {
+        NewsContent.background_id = background_id;
+    }
 }

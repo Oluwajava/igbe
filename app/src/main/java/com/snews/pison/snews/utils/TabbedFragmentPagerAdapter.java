@@ -5,25 +5,50 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
+import java.util.List;
+
 /**
+ * the purpose of this class is to be used as
+ * a pager adapter for all classes that needs to use a viewpager
+ * like explore and the selection page
  * Created by Mayokun on 1/19/2017.
  */
 
 public class TabbedFragmentPagerAdapter extends FragmentStatePagerAdapter {
 
     protected Context context;
+    protected List<? extends TabFragmentPage<? extends Fragment>> tabFragmentPages;
 
-    public TabbedFragmentPagerAdapter(FragmentManager fm) {
+    public TabbedFragmentPagerAdapter(FragmentManager fm, Context context, List<? extends TabFragmentPage<? extends Fragment>> tabFragmentPages) {
         super(fm);
+        this.context = context;
+        this.tabFragmentPages = tabFragmentPages;
     }
 
     @Override
     public Fragment getItem(int position) {
-        return null;
+        TabFragmentPage<?> tabFragmentPage = tabFragmentPages.get(position);
+
+        Fragment fragment = tabFragmentPage.getFragment();
+        if (fragment == null) {
+            fragment = tabFragmentPage.createFragment();
+        }
+
+        return fragment;
     }
 
     @Override
     public int getCount() {
-        return 0;
+        return tabFragmentPages.size();
+    }
+
+    @Override
+    public CharSequence getPageTitle(int position) {
+        TabFragmentPage<?> tabFragmentPage = tabFragmentPages.get(position);
+        return context.getString(tabFragmentPage.getTitleResource());
+    }
+
+    public <T extends Fragment> T getFragment(int position) {
+        return (T) getItem(position);
     }
 }

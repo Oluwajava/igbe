@@ -11,6 +11,9 @@ import java.util.Locale;
 
 public class FontFactory {
 
+    private FontFactory() {
+        throw new AssertionError();
+    }
     public static Typeface getTypeFace(AssetManager am, String type) {
         if(type.equalsIgnoreCase("bold")) {
             return Typeface.createFromAsset(am, String.format(Locale.US, "fonts/%s", "ssbold.ttf"));

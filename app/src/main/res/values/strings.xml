@@ -52,6 +52,15 @@
     <string name="saved_tab">Saved</string>
     <string name="search_title">Find topics of interest</string>
     <string name="search_hint">Search for sources, topics ...</string>
+    <string name="explore_sub_title">See trending news sources</string>
+    <string name="trending">TRENDING</string>
+    <string name="politics">POLITICS</string>
+    <string name="world">World</string>
+    <string name="sports">SPORTS</string>
+    <string name="EUROPE">Europe</string>
+    <string name="africa">AFRICA</string>
+    <string name="tap_one">Tap at least one to continue</string>
+    <string name="pick_favourites">PICK YOUR FAVOURITES</string>
 
 
 </resources>
