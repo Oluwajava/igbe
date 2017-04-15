@@ -2,6 +2,7 @@ package com.snews.pison.snews.fragments;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -86,7 +87,16 @@ public class SelectionFragment extends Fragment {
 
         recyclerView = (RecyclerView)view.findViewById(R.id.recycler_view);
         //the value passed to the layout manager determines the size of each card
-        recyclerView.setLayoutManager(new GridLayoutManager(getActivity(), 4));
+
+        if ((getResources().getConfiguration().screenLayout &
+                Configuration.SCREENLAYOUT_SIZE_MASK) ==
+                Configuration.SCREENLAYOUT_SIZE_LARGE) {
+            // on a large screen device ...
+            recyclerView.setLayoutManager(new GridLayoutManager(getActivity(), 4));
+        }else{
+            recyclerView.setLayoutManager(new GridLayoutManager(getActivity(), 3));
+        }
+
         recyclerView.setHasFixedSize(true);
         adapter = new SelectionAdapter(list, getActivity());
         recyclerView.setAdapter(adapter);

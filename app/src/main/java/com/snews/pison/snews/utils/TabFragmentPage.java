@@ -10,29 +10,29 @@ import java.io.Serializable;
  */
 
 public class TabFragmentPage<T extends Fragment> implements Serializable {
-
-    private int titleResource;
+    private int titleRes;
     private Bundle args;
     private Class<T> fragmentClass;
     private T fragment;
 
-    public TabFragmentPage(int titleResource, Class<T> fragmentClass, Bundle args) {
-        this.setArgs(args);
-        this.setTitleResource(titleResource);
-        this.setFragmentClass(fragmentClass);
+    public TabFragmentPage(int titleRes, Class<T> fragmentClass, Bundle args) {
+        this.args = args;
+        this.titleRes = titleRes;
+        this.fragmentClass = fragmentClass;
     }
 
-    public TabFragmentPage(int titleResource, Class<T> fragmentClass) {
-        this(titleResource, fragmentClass, new Bundle());
+    public TabFragmentPage(int titleRes, Class<T> fragmentClass) {
+        this(titleRes, fragmentClass, new Bundle());
     }
 
 
-    public int getTitleResource() {
-        return titleResource;
+
+    public int getTitleRes() {
+        return titleRes;
     }
 
-    public void setTitleResource(int titleResource) {
-        this.titleResource = titleResource;
+    public void setTitleRes(int titleRes) {
+        this.titleRes = titleRes;
     }
 
     public Bundle getArgs() {
@@ -51,10 +51,6 @@ public class TabFragmentPage<T extends Fragment> implements Serializable {
         this.fragmentClass = fragmentClass;
     }
 
-    public T getFragment() {
-        return fragment;
-    }
-
     public T createFragment() {
         T fragment = null;
 
@@ -66,6 +62,10 @@ public class TabFragmentPage<T extends Fragment> implements Serializable {
         }
 
         this.fragment = fragment;
+        return fragment;
+    }
+
+    public T getFragment() {
         return fragment;
     }
 }

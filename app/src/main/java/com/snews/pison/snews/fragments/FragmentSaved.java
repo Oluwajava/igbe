@@ -43,7 +43,14 @@ public class FragmentSaved extends Fragment {
             "An enthusiast recent graduate with B.sc in political science (public administration) and international relations. Excellent research,"};
     String[] source = {"ESPN", "ESPN", "ESPN", "ESPN", "ESPN", "ESPN", "ESPN", "ESPN"};
     String[] time = {"2h", "2h", "2h", "2h", "2h", "2h", "2h", "2h"};
-    String[] thumbnail_id = {"http://goo.gl/gEgYUd", "http://goo.gl/gEgYUd", "http://goo.gl/gEgYUd", "http://goo.gl/gEgYUd", "http://goo.gl/gEgYUd", "http://goo.gl/gEgYUd", "http://goo.gl/gEgYUd", "http://goo.gl/gEgYUd"};
+    String[] thumbnail_id = {"https://metrouk2.files.wordpress.com/2016/10/617269818.jpg",
+            "http://static.guim.co.uk/sys-images/Football/Pix/pictures/2015/4/16/1429206099512/Eden-Hazard-009.jpg",
+            "https://blog-blogmediainc.netdna-ssl.com/upload/SportsBlogcom/2355290/0393288001463260456_filepicker.jpg",
+            "http://a.fssta.com/content/dam/fsdigital/fscom/soccer/images/2016/08/23/lionel-messi.vadapt.980.high.63.png",
+            "http://e1.365dm.com/15/11/16-9/20/jose-mourinho-chelsea-manager_3380880.jpg?20151124201615",
+            "http://cdn.images.express.co.uk/img/dynamic/67/590x/Antonio-Conte-639015.jpg",
+            "http://goo.gl/gEgYUd",
+            "http://goo.gl/gEgYUd"};
 
     /** Required empty constructor */
     public FragmentSaved() {}
@@ -71,6 +78,7 @@ public class FragmentSaved extends Fragment {
             News news = new News.Builder(image, title[count])
                                 .content(content[count])
                                 .source(source[count])
+                                .sourceId(image)
                                 .time(time[count])
                                 .build();
 

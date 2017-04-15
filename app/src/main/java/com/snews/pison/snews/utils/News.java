@@ -1,10 +1,12 @@
 package com.snews.pison.snews.utils;
 
+import java.io.Serializable;
+
 /**
  * Created by Olusegun Olaosebikan on 10/31/2016.
  */
 
-public class News {
+public class News implements Serializable{
     private final String thumbnailId;
     private final String sourceId;
     private final String title;

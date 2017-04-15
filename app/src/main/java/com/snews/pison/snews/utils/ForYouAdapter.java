@@ -1,6 +1,7 @@
 package com.snews.pison.snews.utils;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -13,7 +14,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.target.GlideDrawableImageViewTarget;
+import com.snews.pison.snews.NewsActivity;
 import com.snews.pison.snews.R;
+import com.snews.pison.snews.fragments.NewsPage;
 
 import java.util.ArrayList;
 
@@ -22,7 +26,7 @@ import java.util.ArrayList;
  */
 
 public class ForYouAdapter  extends RecyclerView.Adapter<ForYouAdapter.ForYouViewHolder> {
-    ArrayList<News> news = new ArrayList<News>();
+    public static ArrayList<News> news = new ArrayList<News>();
     public static Context ctx;
 
     public ForYouAdapter(ArrayList<News> news, Context ctx){
@@ -62,9 +66,11 @@ public class ForYouAdapter  extends RecyclerView.Adapter<ForYouAdapter.ForYouVie
     public void onBindViewHolder(ForYouAdapter.ForYouViewHolder holder, int position) {
         News newsId = news.get(position);
         if(position > 0)
-            Glide.with(ctx).load(newsId.getThumbnailId()).centerCrop().into(holder.thumbnailImage);
+            Glide.with(ctx).load(newsId.getThumbnailId())
+                           .centerCrop()
+                           .into(new GlideDrawableImageViewTarget(holder.thumbnailImage));
         else
-            Glide.with(ctx).load(newsId.getThumbnailId()).centerCrop().into(holder.thumbnailImage);
+            Glide.with(ctx).load(newsId.getThumbnailId()).centerCrop().into(new GlideDrawableImageViewTarget(holder.thumbnailImage));
         holder.title.setText(newsId.getTitle());
         if (position == 0)
             holder.content.setText(newsId.getContent());
@@ -104,8 +110,13 @@ public class ForYouAdapter  extends RecyclerView.Adapter<ForYouAdapter.ForYouVie
         @Override
         public void onClick(View view) {
 
-            int position = view.getId();
+            int position = getAdapterPosition();
 
+            Toast.makeText(ctx, "Position: "+position+" News Size: "+news.size(), Toast.LENGTH_SHORT).show();
+
+            Intent newsPageIntent = new Intent(ctx, NewsActivity.class);
+            newsPageIntent.putExtra("news", news.get(position));
+            ctx.startActivity(newsPageIntent);
 
 
         }

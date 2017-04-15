@@ -5,6 +5,8 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
+import com.snews.pison.snews.fragments.AbstractFragment;
+
 import java.util.List;
 
 /**
@@ -17,13 +19,15 @@ import java.util.List;
 public class TabbedFragmentPagerAdapter extends FragmentStatePagerAdapter {
 
     protected Context context;
-    protected List<? extends TabFragmentPage<? extends Fragment>> tabFragmentPages;
+    protected List<? extends TabFragmentPage<? extends AbstractFragment>> tabFragmentPages;
 
-    public TabbedFragmentPagerAdapter(FragmentManager fm, Context context, List<? extends TabFragmentPage<? extends Fragment>> tabFragmentPages) {
+    public TabbedFragmentPagerAdapter(FragmentManager fm, Context context, List<? extends TabFragmentPage<? extends AbstractFragment>> tabFragmentPages) {
         super(fm);
+
         this.context = context;
         this.tabFragmentPages = tabFragmentPages;
     }
+
 
     @Override
     public Fragment getItem(int position) {
@@ -33,7 +37,6 @@ public class TabbedFragmentPagerAdapter extends FragmentStatePagerAdapter {
         if (fragment == null) {
             fragment = tabFragmentPage.createFragment();
         }
-
         return fragment;
     }
 
@@ -45,7 +48,7 @@ public class TabbedFragmentPagerAdapter extends FragmentStatePagerAdapter {
     @Override
     public CharSequence getPageTitle(int position) {
         TabFragmentPage<?> tabFragmentPage = tabFragmentPages.get(position);
-        return context.getString(tabFragmentPage.getTitleResource());
+        return context.getString(tabFragmentPage.getTitleRes());
     }
 
     public <T extends Fragment> T getFragment(int position) {

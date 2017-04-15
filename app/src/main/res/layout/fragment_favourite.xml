@@ -8,15 +8,21 @@
 
     <!-- Custom Toolbar -->
     <include layout="@layout/base_toolbar"/>
-    <View
+
+    <Button
+        android:text="Button"
         android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@color/lightGray"/>
+        android:layout_height="wrap_content"
+        android:id="@+id/button" />
+    <!--<View-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="1dp"-->
+        <!--android:background="@color/lightGray"/>-->
 
 
-    <android.support.v7.widget.RecyclerView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/recycler_view"
-        android:layout_marginBottom="?attr/actionBarSize"/>
+    <!--<android.support.v7.widget.RecyclerView-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:id="@+id/recycler_view"-->
+        <!--android:layout_marginBottom="?attr/actionBarSize"/>-->
 </LinearLayout>

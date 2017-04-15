@@ -155,7 +155,7 @@ public class SplashScreen  extends AppCompatActivity {
     private void launchHomeScreen() {
         prefManager.setFirstTimeLaunch(false);
         if(prefManager.isSelectionMade()){
-            startActivity(new Intent(SplashScreen.this, MenuActivity.class));
+            startActivity(new Intent(SplashScreen.this, Intro.class));
         }else{
             startActivity(new Intent(SplashScreen.this, Selection.class));
 
@@ -242,4 +242,5 @@ public class SplashScreen  extends AppCompatActivity {
             container.removeView(view);
         }
     }
+
 }

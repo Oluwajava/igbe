@@ -1,5 +1,6 @@
 package com.snews.pison.snews.fragments;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
@@ -23,13 +24,14 @@ import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 /**
  * This class shows the list of sources
  * selected by the user as favourites
  */
 
-public class FragmentFavourite extends Fragment {
+public class FragmentFavourite extends AbstractFragment {
     RecyclerView recyclerView;
     RecyclerView.Adapter adapter;
     RecyclerView.LayoutManager layoutManager;
@@ -59,10 +61,10 @@ public class FragmentFavourite extends Fragment {
 
         initializeToolbar(rootView);
 
-        pref = new PrefManager(getActivity());
-        recyclerView = (RecyclerView)rootView.findViewById(R.id.recycler_view);
-
-        initializeCard(rootView);
+//        pref = new PrefManager(getActivity());
+//        recyclerView = (RecyclerView)rootView.findViewById(R.id.recycler_view);
+//
+//        initializeCard(rootView);
         return rootView;
     }
 
@@ -94,15 +96,8 @@ public class FragmentFavourite extends Fragment {
 //        recyclerView.setAdapter(adapter);
     }
 
-    private void initializeToolbar(View rootView) {
-
-        // Setup the toolbar
-        Toolbar toolbar = ButterKnife.findById(rootView, R.id.toolbar);
-        TextView toolBarTitle = ButterKnife.findById(toolbar, R.id.toolbar_title);
-        toolBarTitle.setText(R.string.favorites_tab);
-        AppCompatActivity activity = (AppCompatActivity) getActivity();
-        activity.setSupportActionBar(toolbar);
-        activity.getSupportActionBar().setDisplayShowTitleEnabled(false);
+    private void initializeToolbar(View view) {
+        super.initilizeToolbars(view, R.string.favorites_tab, 0, false);
 
     }
 

@@ -37,7 +37,7 @@ import butterknife.ButterKnife;
 /**
  * User can search for article using certain keywords
  */
-public class FragmentSearch extends Fragment {
+public class FragmentSearch extends AbstractFragment {
 
     private List<News> newsList = newsList = new ArrayList<>();;
     private RecyclerView mRecyclerView;
@@ -55,19 +55,14 @@ public class FragmentSearch extends Fragment {
         setHasOptionsMenu(true);
     }
 
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.fragment_search, container, false);
 
-        // Setup the toolbar
-        Toolbar toolbar = ButterKnife.findById(rootView, R.id.toolbar);
-        TextView toolBarTitle = ButterKnife.findById(toolbar, R.id.toolbar_title);
-        toolBarTitle.setText(R.string.search_tab);
-        AppCompatActivity activity = (AppCompatActivity) getActivity();
-        activity.setSupportActionBar(toolbar);
-        activity.getSupportActionBar().setDisplayShowTitleEnabled(false);
+        initializeToolbar(rootView);
 
         mRecyclerView = ButterKnife.findById(rootView, R.id.search_results);
         mLinearLayoutManager = new LinearLayoutManager(getActivity());
@@ -170,5 +165,11 @@ public class FragmentSearch extends Fragment {
                         "carat ispusm marak ispum mara maraton isput")
                 .build());
         mSearchResultsAdapter.notifyDataSetChanged();
+    }
+
+
+    private void initializeToolbar(View view) {
+        super.initilizeToolbars(view, R.string.search_tab, 0, false);
+
     }
 }

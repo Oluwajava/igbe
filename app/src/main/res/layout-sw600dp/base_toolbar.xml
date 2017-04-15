@@ -20,6 +20,7 @@
             android:layout_gravity="center_horizontal"
             android:textSize="13sp"
             android:textColor="#000"
+            android:visibility="gone"
             android:text=""
             android:layout_below="@id/toolbar_title"
             android:layout_centerHorizontal="true" />
@@ -43,7 +44,7 @@
             android:layout_alignParentEnd="true"
             android:background="@null"
             android:foregroundTint="#000"
-            android:visibility="invisible"
+            android:visibility="gone"
             android:id="@+id/next" />
 
     </RelativeLayout>

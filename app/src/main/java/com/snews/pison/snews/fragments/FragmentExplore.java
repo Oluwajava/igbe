@@ -1,5 +1,6 @@
 package com.snews.pison.snews.fragments;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
@@ -18,6 +19,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.snews.pison.snews.R;
+import com.snews.pison.snews.utils.TabAdapter;
 import com.snews.pison.snews.utils.TabFragmentPage;
 import com.snews.pison.snews.utils.TabbedFragmentPagerAdapter;
 
@@ -31,13 +33,13 @@ import butterknife.ButterKnife;
  * One for the sources selected by the user as favourites and
  * The other news sources
  */
-public class FragmentExplore extends Fragment {
+public class FragmentExplore extends AbstractFragment {
 
     TabLayout tabLayout;
     ViewPager viewPager;
     private View view;
     private TabbedFragmentPagerAdapter pagerAdapter;
-    protected List<TabFragmentPage<? extends Fragment>> tabFragmentPages;
+    protected List<? super Fragment> tabFragmentPages;
     /** Required empty constructor */
     public FragmentExplore() {}
 
@@ -48,16 +50,7 @@ public class FragmentExplore extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
-        tabFragmentPages.clear();
-        initializeTabs(view);
-        Log.d("Test", "Resumption");
-    }
-
-    @Override
-    public void onPause() {
-        super.onPause();
-        tabFragmentPages.clear();
-        Log.d("Test", "Paused");
+        initializeTab(view);
     }
 
     @Override
@@ -67,49 +60,48 @@ public class FragmentExplore extends Fragment {
         View rootView = inflater.inflate(R.layout.fragment_explore, container, false);
         this.view = rootView;
 
-        initilizeToolbars(rootView);
-
-        initializeTabs(rootView);
-
+        initializeToolbars(rootView);
 
         return rootView;
 
 
     }
 
-    private void initializeTabs(View view) {
-        // Swipe tab initialization
-        tabLayout = (TabLayout) view.findViewById(R.id.tabLayout);
-        viewPager = (ViewPager) view.findViewById(R.id.pager);
-
+    private void initializeTab(View rootView) {
         tabFragmentPages = new ArrayList<>();
-        tabFragmentPages.add(new TabFragmentPage<NewsPage>(R.string.trending, NewsPage.class));
-        tabFragmentPages.add(new TabFragmentPage<NewsPage>(R.string.world, NewsPage.class));
-        tabFragmentPages.add(new TabFragmentPage<NewsPage>(R.string.politics, NewsPage.class));
-        tabFragmentPages.add(new TabFragmentPage<NewsPage>(R.string.sports, NewsPage.class));
-        tabFragmentPages.add(new TabFragmentPage<NewsPage>(R.string.EUROPE, NewsPage.class));
-        tabFragmentPages.add(new TabFragmentPage<NewsPage>(R.string.africa, NewsPage.class));
+        tabFragmentPages.add(new FragmentForYou());
+        tabFragmentPages.add(new FragmentForYou());
+        tabFragmentPages.add(new FragmentForYou());
 
-        pagerAdapter = new TabbedFragmentPagerAdapter(getChildFragmentManager(), getContext(), tabFragmentPages);
+        viewPager = (ViewPager) rootView.findViewById(R.id.pager);
+        viewPager.setAdapter(new TabAdapter(getChildFragmentManager(),getActivity().getApplicationContext(), (List<? extends Fragment>) tabFragmentPages));
 
-        viewPager.setAdapter(pagerAdapter);
+        tabLayout = (TabLayout) rootView.findViewById(R.id.tabLayout);
         tabLayout.setupWithViewPager(viewPager);
 
+        tabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+                viewPager.setCurrentItem(tab.getPosition());
+            }
+
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+                viewPager.setCurrentItem(tab.getPosition());
+            }
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+                viewPager.setCurrentItem(tab.getPosition());
+            }
+        });
+
     }
 
-    private void initilizeToolbars(View view) {
 
-        // Setup the toolbar
-        Toolbar toolbar = ButterKnife.findById(view, R.id.toolbar);
-        TextView toolBarTitle = ButterKnife.findById(toolbar, R.id.toolbar_title);
-        TextView toolBarSubTitle = ButterKnife.findById(toolbar, R.id.sub_title);
-
-        toolBarTitle.setText(R.string.explore_tab);
-        toolBarSubTitle.setText(R.string.explore_sub_title);
-        AppCompatActivity activity = (AppCompatActivity) getActivity();
-        activity.setSupportActionBar(toolbar);
-        activity.getSupportActionBar().setDisplayShowTitleEnabled(false);
-
+    private void initializeToolbars(View view) {
+        super.initilizeToolbars(view, R.string.explore_tab, R.string.explore_sub_title, true);
     }
+
 
 }

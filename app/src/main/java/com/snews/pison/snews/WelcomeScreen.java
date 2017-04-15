@@ -20,6 +20,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
+import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 
 /**
@@ -40,15 +41,6 @@ public class WelcomeScreen extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        //setting default font
-        CalligraphyConfig.initDefault(new CalligraphyConfig.Builder()
-                .setDefaultFontPath("fonts/opensans.ttf")
-                .setFontAttrId(R.attr.fontPath)
-                .build()
-        );
-
-
 
         // Checking for first time launch - before calling setContentView()
         prefManager = new PrefManager(this);
@@ -234,5 +226,10 @@ public class WelcomeScreen extends AppCompatActivity {
             View view = (View) object;
             container.removeView(view);
         }
+    }
+
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
     }
 }

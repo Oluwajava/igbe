@@ -29,7 +29,7 @@ import butterknife.ButterKnife;
  * Created by Mayokun on 1/18/2017.
  */
 
-public class NewsPage extends Fragment implements Constants{
+public class NewsPage extends AbstractFragment implements Constants{
 
     RecyclerView recyclerView;
     RecyclerView.Adapter adapter;

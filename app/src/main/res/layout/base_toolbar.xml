@@ -10,7 +10,7 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
         android:layout_marginTop="15dp">
 
@@ -22,6 +22,7 @@
             android:layout_below="@+id/toolbar_title"
             android:layout_centerHorizontal="true"
             android:textSize="10sp"
+            android:visibility="gone"
             android:textColor="#000"/>
 
         <TextView
@@ -42,7 +43,7 @@
             android:layout_alignParentEnd="true"
             android:background="@null"
             android:foregroundTint="#000"
-            android:visibility="invisible"
+            android:visibility="gone"
             android:id="@+id/next" />
     </RelativeLayout>
 

@@ -1,11 +1,13 @@
 package com.snews.pison.snews;
 
 import android.content.Context;
+import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 import android.support.annotation.IdRes;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
+import android.widget.ImageView;
 
 import com.roughike.bottombar.BottomBar;
 import com.roughike.bottombar.OnTabSelectListener;
@@ -42,6 +44,11 @@ public class MenuActivity extends AppCompatActivity {
 
         // Setup UI widgets and event handlers
         widgetInitialization();
+
+        ImageView logo_view = (ImageView) findViewById(R.id.logo_view);
+
+        AnimationDrawable animationDrawable = (AnimationDrawable) logo_view.getBackground();
+        animationDrawable.start();
     }
 
     private void widgetInitialization() {
@@ -81,6 +88,7 @@ public class MenuActivity extends AppCompatActivity {
             }
         });
     }
+
 
     @Override
     protected void attachBaseContext(Context newBase) {
